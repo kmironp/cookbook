@@ -1,0 +1,33 @@
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Book;
+DROP TABLE IF EXISTS Cook;
+DROP TABLE IF EXISTS Favourite_Foods;
+
+CREATE TABLE Users (
+    Username VARCHAR(250) PRIMARY KEY,
+    Password VARCHAR(250) NOT NULL,
+    Email VARCHAR(250) DEFAULT NULL
+);
+
+CREATE TABLE Book (
+    Name_Of_Food VARCHAR(250) PRIMARY KEY,
+    Type VARCHAR(250) NOT NULL,
+    Preparation_Time VARCHAR(250) NOT NULL,
+    Calorie_Content VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE Cook (
+    Name_Of_Food VARCHAR(250) PRIMARY KEY,
+    FOREIGN KEY (Name_Of_Food) REFERENCES Book(Name_Of_Food),
+    Sensitivity_Chart VARCHAR(250) NOT NULL,
+    Ingredients LONGTEXT NOT NULL,
+    Preparation LONGTEXT NOT NULL
+);
+
+CREATE TABLE Favourite_Foods (
+    ID int AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(250) NOT NULL,
+    FOREIGN KEY (Username) REFERENCES Users(Username),
+    Foods VARCHAR(250) NOT NULL,
+    FOREIGN KEY (Foods) REFERENCES Book(Name_Of_Food)
+);
