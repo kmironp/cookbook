@@ -1,7 +1,8 @@
-package com.example.therealcookbook.User;
+package com.example.therealcookbook.Users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.example.therealcookbook.Users.UserService;
 
 import java.util.List;
 
@@ -17,12 +18,12 @@ public class UserController {
     }
 
     @GetMapping("asd")
-    public List<Users> getAllUsers()
+    public List<User> getAllUsers()
     {
         return userService.getAllUsers();
     }
     @PostMapping
-    public  void  registerNewUser(@RequestBody Users user)
+    public  void  registerNewUser(@RequestBody User user)
     {
         userService.addUser(user);
     }

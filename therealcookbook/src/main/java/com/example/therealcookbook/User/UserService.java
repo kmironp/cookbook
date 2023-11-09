@@ -1,5 +1,6 @@
-package com.example.therealcookbook.User;
+package com.example.therealcookbook.Users;
 
+import com.example.therealcookbook.Users.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,26 +17,26 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<Users> getAllUsers()
+    public List<User> getAllUsers()
     {
         return userRepository.findAll();
     }
 
-    public Optional<Users> getUserById(Long id)
+    public Optional<User> getUserById(Integer id)
     {
         return userRepository.findById(id);
     }
     
-    public void addUser(Users user) {
+    public void addUser(User user) {
         System.out.println(user);
     }
 
-    public void deleteUser(Users user)
+    public void deleteUser(User user)
     {
         userRepository.delete(user);
     }
 
-    public  void saveUser(Users user)
+    public  void saveUser(User user)
     {
         userRepository.save(user);
     }
