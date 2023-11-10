@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.therealcookbook.Users.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/Users")
@@ -28,10 +29,23 @@ public class UserController {
         userService.saveUser(user);
     }
 
-    /*@GetMapping("useremail")
-    public User getUserByEmail(String email)
+    @GetMapping("useremail")
+    public Optional<User> getUserByEmail(String email)
     {
         return userService.GetUserByEmail(email);
-    }*/
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void DeleteUser(@PathVariable("id") Integer id)
+    {
+        userService.deleteUser(id);
+    }
+    @PutMapping(path = "{id}")
+    public void updateUser(@PathVariable("id") Integer id,
+                           @RequestParam(required = false) String name,
+                           @RequestParam(required = false) String email)
+    {
+        userService.updateUser(id,name,email);
+    }
 
 }
