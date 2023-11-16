@@ -1,0 +1,422 @@
+.katie-smith-uqs1802d0cq-unspla-icon5 {
+  position: absolute;
+  top: 1.7px;
+  left: 0;
+  width: 1366px;
+  height: 1329.3px;
+  object-fit: cover;
+}
+.bgoverlay5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-gray);
+  backdrop-filter: blur(10px);
+  width: 1366px;
+  height: 1331px;
+}
+.mainwindow5 {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-whitesmoke);
+  box-sizing: border-box;
+  width: 1102px;
+  height: 1083px;
+}
+.appwindow5 {
+  position: absolute;
+  top: 82px;
+  left: 133px;
+  width: 1100px;
+  height: 1081px;
+}
+.prof1-icon3,
+.window4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1366px;
+  height: 1331px;
+}
+.prof1-icon3 {
+  top: 98px;
+  left: 1162px;
+  width: 47px;
+  height: 48px;
+  cursor: pointer;
+}
+.time5 {
+  font-weight: 500;
+  font-family: var(--sp-03);
+}
+.foodtime5 {
+  position: relative;
+  line-height: 160%;
+}
+.logo5 {
+  position: absolute;
+  top: 92px;
+  left: 200px;
+  width: 156px;
+  height: 65px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs);
+  box-sizing: border-box;
+  font-size: 28.34px;
+  color: var(--primary-c);
+  font-family: var(--font-merienda);
+}
+.frame-child8,
+.receptek-child {
+  position: absolute;
+  top: 163px;
+  left: 514px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gainsboro);
+  width: 115px;
+  height: 55px;
+}
+.frame-child8 {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.receptek-inner {
+  position: absolute;
+  top: 162px;
+  left: 132px;
+  width: 1102px;
+  height: 1001px;
+}
+.rec-card-child1,
+.rec-card-inner {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-radius: var(--br-mini);
+}
+.rec-card-inner {
+  height: 100%;
+  bottom: 0;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.45);
+}
+.rec-card-child1 {
+  height: 72.84%;
+  bottom: 27.16%;
+  background-color: var(--color-gainsboro);
+}
+.recept-neve2 {
+  position: absolute;
+  height: 25.56%;
+  width: 96.54%;
+  top: 72.84%;
+  left: 1.73%;
+  line-height: 200%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rec-card1,
+.rec-card2,
+.rec-card3 {
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  color: var(--color-dimgray);
+}
+.rec-card1 {
+  height: 35.41%;
+  width: 21.16%;
+  top: 57.47%;
+  right: 14.57%;
+  bottom: 7.13%;
+  left: 64.28%;
+}
+.rec-card2,
+.rec-card3 {
+  width: 289px;
+}
+.rec-card2 {
+  height: 35.41%;
+  top: 57.47%;
+  bottom: 7.13%;
+  left: calc(50% - 144px);
+}
+.rec-card3 {
+  top: 508px;
+  left: 198px;
+  height: 313px;
+}
+.rec,
+.tabl,
+.ujrec {
+  position: relative;
+  line-height: 200%;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-end;
+  width: 85px;
+  height: 43px;
+  flex-shrink: 0;
+}
+.tabl,
+.ujrec {
+  width: 140px;
+  cursor: pointer;
+}
+.ujrec {
+  width: 76px;
+}
+.menu5,
+.menu6 {
+  display: flex;
+  flex-direction: row;
+}
+.menu6 {
+  width: 400px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.menu5 {
+  position: absolute;
+  top: 119px;
+  left: 559px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: var(--sp-03-size);
+  color: var(--balck-basic);
+}
+.hatter-kereseshez {
+  position: absolute;
+  top: 163px;
+  left: 132px;
+  border-radius: var(--br-3xs);
+  background-color: #66a955;
+  width: 1101px;
+  height: 300px;
+}
+.receptek-child1,
+.receptek-child2,
+.receptek-child3,
+.receptek-item {
+  position: absolute;
+  height: 2.6%;
+  width: 1.68%;
+  top: 24.32%;
+  right: 25.04%;
+  bottom: 73.08%;
+  left: 73.28%;
+  background-color: var(--color-rosybrown);
+}
+.receptek-child1,
+.receptek-child2,
+.receptek-child3 {
+  top: 29.75%;
+  bottom: 67.65%;
+}
+.receptek-child2,
+.receptek-child3 {
+  top: 35.18%;
+  bottom: 62.22%;
+}
+.receptek-child3 {
+  top: 40.61%;
+  bottom: 56.79%;
+}
+.glutnmentes,
+.laktzmentes,
+.vegetrinus,
+.vegn {
+  position: absolute;
+  top: 22.96%;
+  left: 76.06%;
+  line-height: 200%;
+  text-align: center;
+}
+.laktzmentes,
+.vegetrinus,
+.vegn {
+  top: 28.28%;
+  left: 76.21%;
+}
+.vegetrinus,
+.vegn {
+  top: 33.6%;
+  left: 76.06%;
+}
+.vegn {
+  top: 39.25%;
+  left: 75.99%;
+}
+.hozzval-neve {
+  flex: 1;
+  position: relative;
+  font-weight: 500;
+}
+.hozzavalo-beirasa {
+  position: absolute;
+  top: 238px;
+  left: 158px;
+  border-radius: var(--br-mini);
+  border: 1px solid #26641c;
+  box-sizing: border-box;
+  width: 800px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs);
+  font-size: var(--font-size-5xl);
+}
+.searchoutline-icon {
+  position: absolute;
+  top: 9.5px;
+  left: 15.7px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.search {
+  position: absolute;
+  top: 2.4px;
+  left: 48.3px;
+  line-height: 170%;
+  font-weight: 500;
+  transform: rotate(0.88deg);
+  transform-origin: 0 0;
+}
+.searchoutline-parent {
+  position: relative;
+  border-radius: var(--br-81xl);
+  background-color: var(--primary-c);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  border-bottom: 2px solid var(--color-black);
+  box-sizing: border-box;
+  width: 160px;
+  height: 46px;
+}
+.kereso-gomb {
+  position: absolute;
+  top: 325px;
+  left: 798px;
+  height: 43px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: var(--bt-01-size);
+}
+.receptek-keresse {
+  position: absolute;
+  top: 182px;
+  left: 158px;
+  font-size: var(--font-size-5xl);
+  font-weight: 500;
+}
+.elvalaszto {
+  position: absolute;
+  top: 181.5px;
+  left: 974.5px;
+  border-right: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 1px;
+  height: 261px;
+}
+.circle-child2,
+.circle5 {
+  background-color: var(--color-white);
+}
+.circle-child2 {
+  position: relative;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+.circle5 {
+  border-radius: var(--br-81xl);
+  border: 2px solid var(--color-black);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-8xs);
+}
+.tartalmazza2 {
+  position: relative;
+  font-weight: 500;
+}
+.radiogombok1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xs);
+}
+.circle-child3 {
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-lightgreen);
+  width: 24px;
+  height: 24px;
+}
+.circle6,
+.kihagy-kivalasztva {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.circle6 {
+  border-radius: var(--br-81xl);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-lightgreen);
+  padding: var(--padding-8xs);
+}
+.kihagy-kivalasztva {
+  position: absolute;
+  top: 0;
+  left: 0;
+  gap: var(--gap-81xl);
+}
+.tart-alap,
+.tart-kihagy-kivalasztva,
+.tart-tart-kivalasztva {
+  position: absolute;
+  top: 378px;
+  left: 186px;
+  width: 442px;
+  height: 36px;
+  font-size: var(--font-size-5xl);
+}
+.tart-alap,
+.tart-tart-kivalasztva {
+  top: 424px;
+}
+.tart-alap {
+  top: 332px;
+}
+.receptek5 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 884px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-4xl);
+  color: var(--color-white);
+  font-family: var(--sp-03);
+}
