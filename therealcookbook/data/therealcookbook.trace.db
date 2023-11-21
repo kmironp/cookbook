@@ -1,0 +1,9 @@
+2023-11-21 14:44:04 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]AMOUNT"; expected "ALTER, ANALYZE"; SQL statement:
+AMOUNT [42001-214]
+2023-11-21 14:44:06 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]AMOUNT CALORY_TABLE"; expected "ALTER, ANALYZE"; SQL statement:
+AMOUNT CALORY_TABLE [42001-214]
+2023-11-21 14:44:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]AMOUNT CALORY_TABLE"; expected "ALTER, ANALYZE"; SQL statement:
+AMOUNT CALORY_TABLE [42001-214]
