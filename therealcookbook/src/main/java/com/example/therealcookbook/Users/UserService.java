@@ -40,21 +40,38 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public  void saveUser(User user)
+    public  void saveUser(User user, String pwagain)
     {
         Optional<User> u = userRepository.findUserByEmail(user.getEmail());
         if(u.isPresent())
         {
             throw new IllegalStateException("email already exists");
         }
+        if(user.getEmail().contains("@") && user.getEmail().contains(".")) {
 
-        userRepository.save(user);
+            if(user.getPassword().equals(pwagain))
+            {
+                userRepository.save(user);
+            }
+            else
+            {
+                throw new IllegalStateException("The 2 passwords don't match.");
+
+            }
+
+        }
+        else
+        {
+            throw new IllegalStateException("Bad email format.");
+        }
     }
 
     public Optional<User> GetUserByEmail(String email)
     {
+
         return userRepository.findUserByEmail(email);
     }
+
 
     @Transactional
     public void updateUser(Integer id, String username, String email) {

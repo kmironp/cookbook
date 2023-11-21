@@ -19,15 +19,12 @@ public class Ingredient {
     private Integer id;
     private String category;
     private String name;
-    private Double energy;
-    private Double protein;
-    private Double fat;
-    private Double carbohydrate;
-    private Double gi;
+    private Integer amount;
+    private String measure;
     private boolean vegan;
     private boolean vegetarian;
     private boolean lactose;
-    private boolean glucose;
+    private boolean gluten;
 
 
 

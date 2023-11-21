@@ -23,10 +23,11 @@ public class UserController {
     {
         return userService.getAllUsers();
     }
+
     @PostMapping
-    public  void  registerNewUser(@RequestBody User user)
+    public  void  registerNewUser(@RequestBody User user, @RequestBody String pwagain)
     {
-        userService.saveUser(user);
+        userService.saveUser(user,pwagain);
     }
 
     @GetMapping("useremail")
@@ -40,6 +41,7 @@ public class UserController {
     {
         userService.deleteUser(id);
     }
+
     @PutMapping(path = "{id}")
     public void updateUser(@PathVariable("id") Integer id,
                            @RequestParam(required = false) String name,

@@ -34,7 +34,7 @@ public class Recipe {
     private boolean vegan;
     private boolean vegetarian;
     private boolean lactose;
-    private boolean glucose;
+    private boolean gluten;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -42,4 +42,5 @@ public class Recipe {
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Ingredient> ingredients;
+
 }
