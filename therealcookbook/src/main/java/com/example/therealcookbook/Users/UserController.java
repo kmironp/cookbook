@@ -21,10 +21,73 @@ public class UserController {
     {
         return userService.getAllUsers();
     }
+<<<<<<< Updated upstream
     @PostMapping
     public  void  registerNewUser(@RequestBody Users user)
     {
         userService.addUser(user);
     }
 
+=======
+
+    @PostMapping("userregister")
+    public void registerNewUser(@RequestBody User user)
+    {
+        userService.saveUser(user);
+    }
+
+    @GetMapping("useremail")
+    public Optional<User> getUserByEmail(String email)
+    {
+        return userService.GetUserByEmail(email);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void DeleteUser(@PathVariable("id") Integer id)
+    {
+        userService.deleteUser(id);
+    }
+
+    @PutMapping(path = "{id}")
+    public void updateUser(@PathVariable("id") Integer id,
+                           @RequestParam(required = false) String name,
+                           @RequestParam(required = false) String email)
+    {
+        userService.updateEmail(id,name,email);
+    }
+    @PutMapping(path = "{id}/updatepw")
+    public void updatePw(@PathVariable("id") Integer id,
+                         @RequestParam(required = true) String email,
+                         @RequestParam(required = true) String oldPw,
+                         @RequestParam(required = true) String pw,
+                         @RequestParam(required = true) String tempPw)
+    {
+        userService.updatePw(id,email,oldPw,pw,tempPw);
+    }
+
+
+    @GetMapping("{id}/username")
+    public String getUsername(@PathVariable("id") Integer id)
+    {
+        return userService.getUsername(id);
+    }
+    @GetMapping("{id}/email")
+    public String getEmail(@PathVariable("id") Integer id)
+    {
+        return userService.getEmail(id);
+    }
+    @GetMapping("{id}/OwnRecipes")
+    public List<Recipe> getOwnRec(@PathVariable("id") Integer id)
+    {
+        return userService.getOwnRec(id);
+    }
+    @GetMapping("{id}/FavRecipes")
+    public List<Recipe> getFavRec(@PathVariable("id") Integer id)
+    {
+        return userService.getFavRec(id);
+    }
+
+
+
+>>>>>>> Stashed changes
 }

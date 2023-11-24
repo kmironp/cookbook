@@ -4,6 +4,7 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/cbp/pom.xml" />
         <option value="$PROJECT_DIR$/therealcookbook/pom.xml" />
       </list>
@@ -13,6 +14,11 @@
         <option value="$PROJECT_DIR$/cbp/pom.xml" />
       </set>
     </option>
+=======
+        <option value="$PROJECT_DIR$/therealcookbook/pom.xml" />
+      </list>
+    </option>
+>>>>>>> Stashed changes
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="corretto-20" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
