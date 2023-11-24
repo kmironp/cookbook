@@ -25,7 +25,7 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping
+    @PostMapping("save")
     public  void  registerNewUser(@RequestBody User user, @RequestBody String pwagain)
     {
         userService.saveUser(user,pwagain);
@@ -50,7 +50,7 @@ public class UserController {
     {
         userService.updateEmail(id,name,email);
     }
-    @PutMapping(path = "{id}")
+    @PutMapping(path = "{id}/updatepw")
     public void updatePw(@PathVariable("id") Integer id,
                            @RequestParam(required = true) String email,
                            @RequestParam(required = true) String oldPw,
