@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/cookbook.iml" filepath="$PROJECT_DIR$/.idea/cookbook.iml" />
-      <module fileurl="file://$PROJECT_DIR$/therealcookbook/therealcookbook.iml" filepath="$PROJECT_DIR$/therealcookbook/therealcookbook.iml" />
     </modules>
   </component>
 </project>

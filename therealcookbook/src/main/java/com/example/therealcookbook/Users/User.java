@@ -1,19 +1,8 @@
 package com.example.therealcookbook.Users;
 
 import com.example.therealcookbook.Recipes.Recipe;
-<<<<<<< Updated upstream
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-=======
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
->>>>>>> Stashed changes
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,6 +21,7 @@ public class User {
     @Column(unique = true)
     private String username;
     private String password;
+    @Column(unique = true)
     private String email;
 
     @Nullable

@@ -1,9 +1,11 @@
-package com.example.therealcookbook.User;
+package com.example.therealcookbook.Users;
 
+import com.example.therealcookbook.Recipes.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/Users")
@@ -16,23 +18,15 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("asd")
-    public List<Users> getAllUsers()
+    @GetMapping("alluserslist")
+    public List<User> getAllUsers()
     {
         return userService.getAllUsers();
     }
-<<<<<<< Updated upstream
-    @PostMapping
-    public  void  registerNewUser(@RequestBody Users user)
-    {
-        userService.addUser(user);
-    }
-
-=======
 
     @PostMapping("userregister")
     public void registerNewUser(@RequestBody User user)
-    {
+    {   
         userService.saveUser(user);
     }
 
@@ -89,5 +83,4 @@ public class UserController {
 
 
 
->>>>>>> Stashed changes
 }

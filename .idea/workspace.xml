@@ -4,55 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="af72292b-7056-4d1b-a276-6b6e18aa1579" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/Ingredient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/IngredientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/Recipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/main/java/com/example/h2database/H2databaseApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/main/resources/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/main/resources/schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/test/java/com/example/h2database/H2databaseApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/TherealcookbookApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/TherealcookbookApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/UserConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/Users.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/test/java/com/example/therealcookbook/TherealcookbookApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/test/java/com/example/therealcookbook/TherealcookbookApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/org/example/Main.java" beforeDir="false" />
-    </list>
-=======
     <list default="true" id="6bc730f5-3822-4102-9185-1769e87a03e5" name="Changes" comment="" />
->>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,12 +20,6 @@
       </list>
     </option>
   </component>
-<<<<<<< Updated upstream
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-=======
->>>>>>> Stashed changes
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -94,39 +40,21 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-<<<<<<< Updated upstream
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lAlIkA&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-=======
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/Biboy/Documents/GitHub/cookbook/therealcookbook/src/test/java&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Biboy/Documents/GitHub/cookbook&quot;,
->>>>>>> Stashed changes
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-<<<<<<< Updated upstream
-=======
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
->>>>>>> Stashed changes
     &quot;spring.configuration.checksum&quot;: &quot;c75f0c3a52f40146941e2ddd08e11ce7&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-<<<<<<< Updated upstream
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
-=======
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -134,7 +62,6 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.therealcookbook.Users" />
     </key>
->>>>>>> Stashed changes
   </component>
   <component name="RunManager" selected="Spring Boot.TherealcookbookApplication">
     <configuration name="CaloryTableControllerTest.testToTheTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -240,19 +167,11 @@
       <created>1700808489943</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-<<<<<<< Updated upstream
-      <updated>1699275934135</updated>
-      <workItem from="1699275935438" duration="9145000" />
-      <workItem from="1699285108769" duration="234000" />
-      <workItem from="1699285363989" duration="38000" />
-      <workItem from="1699285460449" duration="7000" />
-=======
       <updated>1700808489943</updated>
       <workItem from="1700808491194" duration="415000" />
       <workItem from="1700808957226" duration="5429000" />
       <workItem from="1700814410216" duration="1628000" />
       <workItem from="1700816060999" duration="13607000" />
->>>>>>> Stashed changes
     </task>
     <servers />
   </component>

@@ -1,9 +1,13 @@
-package com.example.therealcookbook.User;
+package com.example.therealcookbook.Users;
 
+
+import com.example.therealcookbook.Recipes.Recipe;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -16,25 +20,27 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<Users> getAllUsers()
+    public List<User> getAllUsers()
     {
         return userRepository.findAll();
     }
 
-    public Optional<Users> getUserById(Long id)
+    public Optional<User> getUserById(Integer id)
     {
         return userRepository.findById(id);
     }
-    
-    public void addUser(Users user) {
-        System.out.println(user);
+
+
+    public void deleteUser(Integer id)
+    {
+        boolean ex = userRepository.existsById(id);
+        if(!ex)
+        {
+            throw new IllegalStateException("No such user");
+        }
+        userRepository.deleteById(id);
     }
 
-<<<<<<< Updated upstream
-    public void deleteUser(Users user)
-    {
-        userRepository.delete(user);
-=======
     public  void saveUser(User user)
     {
         Optional<User> u = userRepository.findUserByEmail(user.getEmail());
@@ -49,14 +55,10 @@ public class UserService {
         {
             throw new IllegalStateException("Bad email format.");
         }
->>>>>>> Stashed changes
     }
 
-    public  void saveUser(Users user)
+    public Optional<User> GetUserByEmail(String email)
     {
-<<<<<<< Updated upstream
-        userRepository.save(user);
-=======
         return userRepository.findUserByEmail(email);
     }
 
@@ -172,6 +174,5 @@ public class UserService {
         {
             throw new IllegalStateException("Wrong Credentials!");
         }
->>>>>>> Stashed changes
     }
 }

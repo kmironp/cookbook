@@ -19,7 +19,6 @@ public class CaloryTable {
     private Integer id;
     private String category;
     private String name;
-    private String amount = "100 egység";   // ??!
     private Double energy;
     private Double protein;
     private Double fat;
