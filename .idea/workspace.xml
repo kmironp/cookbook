@@ -6,13 +6,38 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc730f5-3822-4102-9185-1769e87a03e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/therealcookbook.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/therealcookbook.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/CaloryTable/CaloryTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/CaloryTable/CaloryTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/CaloryTable/CaloryTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/CaloryTable/CaloryTableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/Ingredient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/IngredientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/IngredientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/IngredientService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTable$CaloryTableBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTable$CaloryTableBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTableController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/Ingredient$IngredientBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/Ingredient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/IngredientController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/IngredientRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/IngredientService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/Recipe$RecipeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/Recipe$RecipeBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/Recipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/Recipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,39 +101,7 @@
       <recent name="com.example.therealcookbook.Users" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserControllerTest">
-    <configuration name="CaloryTableControllerTest.testToTheTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="therealcookbook" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.therealcookbook.CaloryTable.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.therealcookbook.CaloryTable" />
-      <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.CaloryTable.CaloryTableControllerTest" />
-      <option name="METHOD_NAME" value="testToTheTable" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CaloryTableControllerTest.testToTheTable_CaloryTableServiceReturnsNoItems" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="therealcookbook" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.therealcookbook.CaloryTable.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.therealcookbook.CaloryTable" />
-      <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.CaloryTable.CaloryTableControllerTest" />
-      <option name="METHOD_NAME" value="testToTheTable_CaloryTableServiceReturnsNoItems" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.TherealcookbookApplication">
     <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="therealcookbook" />
       <extension name="coverage">
@@ -124,7 +117,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.testGetAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testDeleteOwnRecipe_UserExists_RecipeExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="therealcookbook" />
       <extension name="coverage">
         <pattern>
@@ -134,7 +127,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.therealcookbook.Users" />
       <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.Users.UserControllerTest" />
-      <option name="METHOD_NAME" value="testGetAllUsers" />
+      <option name="METHOD_NAME" value="testDeleteOwnRecipe_UserExists_RecipeExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,6 +149,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserControllerTest.testRemoveOneFromFavouriteRecipes_UserExists_RecipeExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="therealcookbook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.therealcookbook.Users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.therealcookbook.Users" />
+      <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.Users.UserControllerTest" />
+      <option name="METHOD_NAME" value="testRemoveOneFromFavouriteRecipes_UserExists_RecipeExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testRemoveOneFromMyFavoriteRecipes_UserExistsAndRecipeExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="therealcookbook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.therealcookbook.Users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.therealcookbook.Users" />
+      <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.Users.UserControllerTest" />
+      <option name="METHOD_NAME" value="testRemoveOneFromMyFavoriteRecipes_UserExistsAndRecipeExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TherealcookbookApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="therealcookbook" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.therealcookbook.TherealcookbookApplication" />
@@ -166,10 +191,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.UserControllerTest.testRemoveOneFromMyFavoriteRecipes_UserExistsAndRecipeExists" />
+        <item itemvalue="JUnit.UserControllerTest.testDeleteOwnRecipe_UserExists_RecipeExists" />
+        <item itemvalue="JUnit.UserControllerTest.testRemoveOneFromFavouriteRecipes_UserExists_RecipeExists" />
         <item itemvalue="JUnit.UserControllerTest.testRemoveFromMyFavouriteRecipes_UserHasNoFavoriteRecipes" />
-        <item itemvalue="JUnit.CaloryTableControllerTest.testToTheTable_CaloryTableServiceReturnsNoItems" />
-        <item itemvalue="JUnit.CaloryTableControllerTest.testToTheTable" />
-        <item itemvalue="JUnit.UserControllerTest.testGetAllUsers" />
       </list>
     </recent_temporary>
   </component>
@@ -186,7 +211,7 @@
       <workItem from="1700814410216" duration="1628000" />
       <workItem from="1700816060999" duration="13607000" />
       <workItem from="1700845378967" duration="5547000" />
-      <workItem from="1700903459582" duration="7367000" />
+      <workItem from="1700903459582" duration="23273000" />
     </task>
     <servers />
   </component>

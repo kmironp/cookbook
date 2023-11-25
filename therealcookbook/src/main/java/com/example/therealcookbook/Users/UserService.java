@@ -37,7 +37,7 @@ public class UserService {
         userRepository.deleteByUsername(username);
     }
 
-    public  void saveUser(User user)
+    public void saveUser(User user)
     {
         Optional<User> u = userRepository.findUserByEmail(user.getEmail());
         if(u.isPresent())
@@ -113,7 +113,19 @@ public class UserService {
         return user.getEmail();
     }
 
-    public List<Recipe> getOwnRecipes(String username) {
+    public User login(String email, String password) {
+        // Find the user by email
+        User user = userRepository.findByEmail(email);
+
+        // Check if the user exists and the password matches
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
+        }
+
+        return null; // Return null if login fails
+    }
+
+    public List<Recipe> getAllOwnRecipes(String username) {
         User user = userRepository.findByUsername(username);
 
         if (user == null) {
@@ -123,26 +135,7 @@ public class UserService {
         return user.getOwnRecipes();
     }
 
-    public void addOwnRecipe(String username, Recipe recipe) {
-        User user = userRepository.findByUsername(username);
-
-        if (user == null) {
-            throw new IllegalArgumentException("User with username " + username + " does not exist");
-        }
-
-        // Set the user for the recipe
-        recipe.setUser(user);
-
-        // Add the recipe to the user's own recipes
-        if (user.getOwnRecipes() == null) {
-            user.setOwnRecipes(new ArrayList<>());
-        }
-        user.getOwnRecipes().add(recipe);
-
-        userRepository.save(user);
-    }
-
-    public void updateOwnRecipe(String username, Recipe updatedRecipe) {
+    public void updateOwnRecipe(String username, Integer recipeId, Recipe updatedRecipe) {
         User user = userRepository.findByUsername(username);
 
         if (user == null) {
@@ -152,25 +145,32 @@ public class UserService {
         List<Recipe> ownRecipes = user.getOwnRecipes();
 
         if (ownRecipes == null || ownRecipes.isEmpty()) {
-            throw new IllegalArgumentException("User with username " + username + " has no own recipes");
+            throw new IllegalArgumentException("User has no own recipes");
         }
 
-        // Find the recipe to update
-        Recipe existingRecipe = ownRecipes.stream()
-                .filter(recipe -> recipe.getId().equals(updatedRecipe.getId()))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Recipe with id " + updatedRecipe.getId() + " not found"));
+        Optional<Recipe> recipeToUpdate = ownRecipes.stream()
+                .filter(recipe -> recipe.getId().equals(recipeId))
+                .findFirst();
 
-        // Update the existing recipe with new details
-        existingRecipe.setName(updatedRecipe.getName());
-        existingRecipe.setDescription(updatedRecipe.getDescription());
-        existingRecipe.setServings(updatedRecipe.getServings());
-        existingRecipe.setVegan(updatedRecipe.isVegan());
-        existingRecipe.setVegetarian(updatedRecipe.isVegetarian());
-        existingRecipe.setLactose(updatedRecipe.isLactose());
-        existingRecipe.setGluten(updatedRecipe.isGluten());
+        if (recipeToUpdate.isPresent()) {
+            Recipe existingRecipe = recipeToUpdate.get();
 
-        userRepository.save(user);
+            // Update the fields of the existing recipe with the new values
+            existingRecipe.setName(updatedRecipe.getName());
+            existingRecipe.setDescription(updatedRecipe.getDescription());
+            existingRecipe.setServings(updatedRecipe.getServings());
+            existingRecipe.setVegan(updatedRecipe.isVegan());
+            existingRecipe.setVegetarian(updatedRecipe.isVegetarian());
+            existingRecipe.setLactose(updatedRecipe.isLactose());
+            existingRecipe.setGluten(updatedRecipe.isGluten());
+            existingRecipe.setIngredientNames(updatedRecipe.getIngredientNames());
+            existingRecipe.setIngredientAmounts(updatedRecipe.getIngredientAmounts());
+            existingRecipe.setIngredientMeasures(updatedRecipe.getIngredientMeasures());
+
+            userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("Recipe with ID " + recipeId + " not found in user's own recipes");
+        }
     }
 
     public void deleteOwnRecipe(String username, Integer recipeId) {
@@ -182,30 +182,47 @@ public class UserService {
 
         List<Recipe> ownRecipes = user.getOwnRecipes();
 
-        if (ownRecipes == null || ownRecipes.isEmpty()) {
-            throw new IllegalArgumentException("User with username " + username + " has no own recipes");
+        if (ownRecipes == null) {
+            throw new IllegalArgumentException("User does not have any own recipes");
         }
 
-        // Find the index of the recipe to delete
-        int recipeIndex = -1;
-        for (int i = 0; i < ownRecipes.size(); i++) {
-            if (ownRecipes.get(i).getId().equals(recipeId)) {
-                recipeIndex = i;
-                break;
-            }
-        }
+        // Find the recipe with the specified ID
+        Optional<Recipe> recipeToDelete = ownRecipes.stream()
+                .filter(recipe -> recipe.getId().equals(recipeId))
+                .findFirst();
 
-        if (recipeIndex == -1) {
-            throw new IllegalArgumentException("Recipe with id " + recipeId + " not found for user " + username);
+        if (recipeToDelete.isPresent()) {
+            ownRecipes.remove(recipeToDelete.get());
+        } else {
+            throw new IllegalArgumentException("Recipe with ID " + recipeId + " does not exist for the user");
         }
-
-        // Remove the recipe from the user's own recipes
-        ownRecipes.remove(recipeIndex);
 
         userRepository.save(user);
     }
 
-    public List<Recipe> getFavouriteRecipes(String username) {
+    public void uploadOwnRecipe(String username, Recipe newRecipe) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        List<Recipe> ownRecipes = user.getOwnRecipes();
+
+        if (ownRecipes == null) {
+            ownRecipes = new ArrayList<>();
+            user.setOwnRecipes(ownRecipes);
+        }
+
+        // Assign the user to the new recipe
+        newRecipe.setUser(user);
+
+        ownRecipes.add(newRecipe);
+
+        userRepository.save(user);
+    }
+
+    public List<Recipe> getAllFavouriteRecipes(String username) {
         User user = userRepository.findByUsername(username);
 
         if (user == null) {
@@ -215,84 +232,80 @@ public class UserService {
         return user.getFavouriteRecipes();
     }
 
-    public void addToMyFavouriteRecipes(String username, Integer recipeId) {
+    public void removeOneFromMyFavoriteRecipes(String username, Integer recipeId) {
         User user = userRepository.findByUsername(username);
 
         if (user == null) {
             throw new IllegalArgumentException("User with username " + username + " does not exist");
         }
 
-        Optional<Recipe> recipeToAdd = findRecipeById(recipeId);
+        List<Recipe> favoriteRecipes = user.getFavouriteRecipes();
 
-        if (recipeToAdd.isEmpty()) {
-            throw new IllegalArgumentException("Recipe with id " + recipeId + " does not exist");
+        if (favoriteRecipes != null) {
+            Recipe recipeToRemove = favoriteRecipes.stream()
+                    .filter(recipe -> recipe.getId().equals(recipeId))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException("Recipe with id " + recipeId + " not found in user's favorite recipes"));
+
+            user.removeFromFavoriteRecipes(recipeToRemove);
+            userRepository.save(user);
+        }
+    }
+
+    public void addToMyFavouriteRecipes(String username, Recipe recipe) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
         }
 
         List<Recipe> favouriteRecipes = user.getFavouriteRecipes();
-
         if (favouriteRecipes == null) {
             favouriteRecipes = new ArrayList<>();
             user.setFavouriteRecipes(favouriteRecipes);
         }
 
-        // Check if the recipe is already in the user's favorite recipes
-        if (favouriteRecipes.contains(recipeToAdd.get())) {
-            throw new IllegalArgumentException("Recipe is already in the user's favorite recipes");
-        }
-
-        boolean added = favouriteRecipes.add(recipeToAdd.get());
-
-        if (added) {
-            userRepository.save(user);
-        }
-    }
-
-    protected Optional<Recipe> findRecipeById(Integer recipeId) {
-        return recipeRepository.findById(recipeId);
-    }
-
-    public void removeFromFavouriteRecipes(String username, Integer recipeId) {
-        User user = userRepository.findByUsername(username);
-
-        if (user == null) {
-            throw new IllegalArgumentException("User with username " + username + " does not exist");
-        }
-
-        List<Recipe> favouriteRecipes = user.getFavouriteRecipes();
-
-        if (favouriteRecipes == null || favouriteRecipes.isEmpty()) {
-            throw new IllegalArgumentException("User with username " + username + " has no favorite recipes");
-        }
-
-        // Find the index of the recipe to remove
-        int recipeIndex = -1;
-        for (int i = 0; i < favouriteRecipes.size(); i++) {
-            if (favouriteRecipes.get(i).getId().equals(recipeId)) {
-                recipeIndex = i;
-                break;
-            }
-        }
-
-        if (recipeIndex == -1) {
-            throw new IllegalArgumentException("Recipe with id " + recipeId + " not found in favorite recipes for user " + username);
-        }
-
-        // Remove the recipe from the user's favorite recipes
-        favouriteRecipes.remove(recipeIndex);
-
+        favouriteRecipes.add(recipe);
         userRepository.save(user);
     }
 
-    public User login(String email, String password) {
-        // Find the user by email
-        User user = userRepository.findByEmail(email);
+    public List<Recipe> getAllRecipesAllUserAvailable() {
+        return recipeRepository.findAll();
+    }
 
-        // Check if the user exists and the password matches
-        if (user != null && user.getPassword().equals(password)) {
-            return user;
-        }
+    public List<Recipe> getRecipesByName(String name) {
+        return recipeRepository.findByNameContainingIgnoreCase(name);
+    }
 
-        return null; // Return null if login fails
+    public List<Recipe> getRecipeByIncludeIngredient(String ingredientName) {
+        return recipeRepository.findByIngredientNamesContainingIgnoreCase(ingredientName);
+    }
+
+    public List<Recipe> getRecipeIfIncludeSpecialDemand() {
+        return recipeRepository.findByVeganIsTrueAndVegetarianIsTrueAndLactoseIsTrueAndGlutenIsTrue();
+    }
+
+    public List<Recipe> getRecipeIfNotIncludeSpecialDemand() {
+        return recipeRepository.findByVeganIsFalseAndVegetarianIsFalseAndLactoseIsFalseAndGlutenIsFalse();
+    }
+
+    @Transactional
+    public void updateRecipeServings(Integer recipeId, Integer newServings) {
+        Recipe recipe = getRecipeById(recipeId);
+        recipe.updateServings(newServings);
+        recipeRepository.save(recipe);
+    }
+
+    @Transactional
+    public void updateRecipeIngredientAmounts(Integer recipeId, List<Integer> newIngredientAmounts) {
+        Recipe recipe = getRecipeById(recipeId);
+        recipe.updateIngredientAmounts(newIngredientAmounts);
+        recipeRepository.save(recipe);
+    }
+
+    private Recipe getRecipeById(Integer recipeId) {
+        return recipeRepository.findById(recipeId)
+                .orElseThrow(() -> new IllegalArgumentException("Recipe with ID " + recipeId + " not found"));
     }
 
 }

@@ -1,15 +1,17 @@
 package com.example.therealcookbook.Recipes;
 
-import lombok.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.util.List;
 
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
+    List<Recipe> findByNameContainingIgnoreCase(String name);
 
-    @NonNull
-    Optional<Recipe> findById(Integer id);
+    List<Recipe> findByIngredientNamesContainingIgnoreCase(String ingredientName);
 
+    List<Recipe> findByVeganIsTrueAndVegetarianIsTrueAndLactoseIsTrueAndGlutenIsTrue();
+
+    List<Recipe> findByVeganIsFalseAndVegetarianIsFalseAndLactoseIsFalseAndGlutenIsFalse();
 }

@@ -25,11 +25,17 @@ public class User {
     private String email;
 
     @Nullable
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Recipe> ownRecipes;
 
     @Nullable
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Recipe> favouriteRecipes;
+
+    public void removeFromFavoriteRecipes(Recipe recipe) {
+        if (favouriteRecipes != null) {
+            favouriteRecipes.remove(recipe);
+        }
+    }
 
 }

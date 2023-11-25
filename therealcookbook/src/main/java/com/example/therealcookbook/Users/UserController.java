@@ -69,57 +69,6 @@ public class UserController {
         return userService.getEmail(username);
     }
 
-    @GetMapping("{username}/ownrecipes")
-    public List<Recipe> getOwnRecipes(@PathVariable("username") String username) {
-        return userService.getOwnRecipes(username);
-    }
-
-    @PostMapping("{username}/addownrecipe")
-    public ResponseEntity<String> addOwnRecipe(
-            @PathVariable("username") String username,
-            @RequestBody Recipe recipe) {
-        userService.addOwnRecipe(username, recipe);
-        return ResponseEntity.ok("Recipe added successfully");
-    }
-
-    @PutMapping("{username}/updateownrecipe")
-    public ResponseEntity<String> updateOwnRecipe(
-            @PathVariable("username") String username,
-            @RequestBody Recipe updatedRecipe) {
-        userService.updateOwnRecipe(username, updatedRecipe);
-        return ResponseEntity.ok("Recipe updated successfully");
-    }
-
-    @DeleteMapping("{username}/deleteownrecipe/{recipeId}")
-    public ResponseEntity<String> deleteOwnRecipe(
-            @PathVariable("username") String username,
-            @PathVariable("recipeId") Integer recipeId) {
-        userService.deleteOwnRecipe(username, recipeId);
-        return ResponseEntity.ok("Recipe deleted successfully");
-    }
-
-    @GetMapping("{username}/favouriterecipes")
-    public ResponseEntity<List<Recipe>> getFavouriteRecipes(@PathVariable("username") String username) {
-        List<Recipe> favouriteRecipes = userService.getFavouriteRecipes(username);
-        return ResponseEntity.ok(favouriteRecipes);
-    }
-
-    @PostMapping("{username}/addtofavouriterecipes/{recipeId}")
-    public ResponseEntity<String> addToMyFavouriteRecipes(
-            @PathVariable("username") String username,
-            @PathVariable("recipeId") Integer recipeId) {
-        userService.addToMyFavouriteRecipes(username, recipeId);
-        return ResponseEntity.ok("Recipe added to favorite recipes successfully");
-    }
-
-    @DeleteMapping("{username}/removefromfavourites/{recipeId}")
-    public ResponseEntity<String> removeFromFavouriteRecipes(
-            @PathVariable("username") String username,
-            @PathVariable("recipeId") Integer recipeId) {
-        userService.removeFromFavouriteRecipes(username, recipeId);
-        return ResponseEntity.ok("Recipe removed from favorites successfully");
-    }
-
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
         User user = userService.login(email, password);
@@ -129,6 +78,93 @@ public class UserController {
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed");
         }
+    }
+
+    @GetMapping("{username}/getownrecipes")
+    public List<Recipe> getAllOwnRecipes(@PathVariable("username") String username) {
+        return userService.getAllOwnRecipes(username);
+    }
+
+    @PutMapping("{username}/updateownrecipes/{recipeId}")
+    public void updateOwnRecipe(
+            @PathVariable("username") String username,
+            @PathVariable("recipeId") Integer recipeId,
+            @RequestBody Recipe updatedRecipe) {
+        userService.updateOwnRecipe(username, recipeId, updatedRecipe);
+    }
+
+    @DeleteMapping("{username}/deleteownrecipe/{recipeId}")
+    public void deleteOwnRecipe(
+            @PathVariable("username") String username,
+            @PathVariable("recipeId") Integer recipeId) {
+        userService.deleteOwnRecipe(username, recipeId);
+    }
+
+    @PostMapping("{username}/uploadownrecipes")
+    public void uploadOwnRecipe(
+            @PathVariable("username") String username,
+            @RequestBody Recipe newRecipe) {
+        userService.uploadOwnRecipe(username, newRecipe);
+    }
+
+    @GetMapping("{username}/getfavouriterecipes")
+    public List<Recipe> getAllFavouriteRecipes(@PathVariable("username") String username) {
+        return userService.getAllFavouriteRecipes(username);
+    }
+
+    @DeleteMapping("{username}/removefromfavorites/{recipeId}")
+    public void removeOneFromMyFavoriteRecipes(
+            @PathVariable("username") String username,
+            @PathVariable("recipeId") Integer recipeId) {
+        userService.removeOneFromMyFavoriteRecipes(username, recipeId);
+    }
+
+    @PostMapping("{username}/addtofavourites")
+    public void addToMyFavouriteRecipes(
+            @PathVariable("username") String username,
+            @RequestBody Recipe recipe) {
+        userService.addToMyFavouriteRecipes(username, recipe);
+    }
+
+    @GetMapping("/getallrecipes")
+    public List<Recipe> getAllRecipesAllUserAvailable() {
+        return userService.getAllRecipesAllUserAvailable();
+    }
+
+    @GetMapping("/recipesbyname")
+    public List<Recipe> getRecipesByName(@RequestParam("name") String name) {
+        return userService.getRecipesByName(name);
+    }
+
+    @GetMapping("/recipesbyincludeingredient")
+    public List<Recipe> getRecipeByIncludeIngredient(@RequestParam("ingredient") String ingredientName) {
+        return userService.getRecipeByIncludeIngredient(ingredientName);
+    }
+
+    @GetMapping("/recipesbyspecialdemand")
+    public List<Recipe> getRecipeIfIncludeSpecialDemand() {
+        return userService.getRecipeIfIncludeSpecialDemand();
+    }
+
+    @GetMapping("/recipeswithoutspecialdemand")
+    public List<Recipe> getRecipeIfNotIncludeSpecialDemand() {
+        return userService.getRecipeIfNotIncludeSpecialDemand();
+    }
+
+    @PutMapping("/updateRecipeServings/{recipeId}")
+    public ResponseEntity<String> updateRecipeServings(
+            @PathVariable Integer recipeId,
+            @RequestParam Integer newServings) {
+        userService.updateRecipeServings(recipeId, newServings);
+        return ResponseEntity.ok("Recipe servings updated successfully");
+    }
+
+    @PutMapping("/updateRecipeIngredientAmounts/{recipeId}")
+    public ResponseEntity<String> updateRecipeIngredientAmounts(
+            @PathVariable Integer recipeId,
+            @RequestBody List<Integer> newIngredientAmounts) {
+        userService.updateRecipeIngredientAmounts(recipeId, newIngredientAmounts);
+        return ResponseEntity.ok("Recipe ingredient amounts updated successfully");
     }
 
 }

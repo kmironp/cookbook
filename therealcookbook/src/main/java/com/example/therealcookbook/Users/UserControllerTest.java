@@ -7,10 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -252,544 +249,6 @@ class UserControllerTest {
     }
 
     @Test
-    void testGetOwnRecipes_UserExists() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe recipe1 = new Recipe();
-        recipe1.setId(1);
-        recipe1.setName("Recipe 1");
-
-        Recipe recipe2 = new Recipe();
-        recipe2.setId(2);
-        recipe2.setName("Recipe 2");
-
-        existingUser.setOwnRecipes(List.of(recipe1, recipe2));
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-
-        // Act
-        List<Recipe> result = userServiceUnderTest.getOwnRecipes(existingUser.getUsername());
-
-        // Assert
-        assertEquals(existingUser.getOwnRecipes(), result);
-    }
-
-    @Test
-    void testGetOwnRecipes_UserDoesNotExist() {
-        // Arrange
-        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.getOwnRecipes("nonexistentUser")
-        );
-    }
-
-    @Test
-    void testGetOwnRecipes_UserExistsNoRecipes() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-        existingUser.setOwnRecipes(Collections.emptyList());
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-
-        // Act
-        List<Recipe> result = userServiceUnderTest.getOwnRecipes(existingUser.getUsername());
-
-        // Assert
-        assertEquals(existingUser.getOwnRecipes(), result);
-    }
-
-    @Test
-    void testAddOwnRecipe_UserExists() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe recipeToAdd = new Recipe();
-        recipeToAdd.setName("New Recipe");
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-        when(mockUserRepository.save(existingUser)).thenReturn(existingUser);
-
-        // Act
-        userServiceUnderTest.addOwnRecipe(existingUser.getUsername(), recipeToAdd);
-
-        // Assert
-        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
-        verify(mockUserRepository, times(1)).save(existingUser);
-
-        List<Recipe> ownRecipes = existingUser.getOwnRecipes();
-        assertNotNull(ownRecipes);
-        assertEquals(1, ownRecipes.size());
-        assertEquals(recipeToAdd, ownRecipes.get(0));
-    }
-
-    @Test
-    void testAddOwnRecipe_UserDoesNotExist() {
-        // Arrange
-        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.addOwnRecipe("nonexistentUser", new Recipe())
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testAddOwnRecipe_NullOwnRecipesList() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe recipeToAdd = new Recipe();
-        recipeToAdd.setName("New Recipe");
-
-        // Simulate a case where the user's ownRecipes list is null
-        existingUser.setOwnRecipes(null);
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-        when(mockUserRepository.save(existingUser)).thenReturn(existingUser);
-
-        // Act
-        userServiceUnderTest.addOwnRecipe(existingUser.getUsername(), recipeToAdd);
-
-        // Assert
-        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
-        verify(mockUserRepository, times(1)).save(existingUser);
-
-        List<Recipe> ownRecipes = existingUser.getOwnRecipes();
-        assertNotNull(ownRecipes);
-        assertEquals(1, ownRecipes.size());
-        assertEquals(recipeToAdd, ownRecipes.get(0));
-    }
-
-    @Test
-    void testUpdateOwnRecipe_UserExists() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe existingRecipe = new Recipe();
-        existingRecipe.setId(1);
-        existingRecipe.setName("Existing Recipe");
-
-        existingUser.setOwnRecipes(new ArrayList<>(List.of(existingRecipe)));
-
-        Recipe updatedRecipe = new Recipe();
-        updatedRecipe.setId(1);
-        updatedRecipe.setName("Updated Recipe");
-        updatedRecipe.setDescription("An updated delicious recipe");
-        updatedRecipe.setServings(6);
-        updatedRecipe.setVegan(false);
-        updatedRecipe.setVegetarian(false);
-        updatedRecipe.setLactose(true);
-        updatedRecipe.setGluten(true);
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-        when(mockUserRepository.save(existingUser)).thenReturn(existingUser);
-
-        // Act
-        userServiceUnderTest.updateOwnRecipe(existingUser.getUsername(), updatedRecipe);
-
-        // Assert
-        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
-        verify(mockUserRepository, times(1)).save(existingUser);
-
-        List<Recipe> ownRecipes = existingUser.getOwnRecipes();
-        assertNotNull(ownRecipes);
-        assertEquals(1, ownRecipes.size());
-
-        Recipe updatedRecipeResult = ownRecipes.get(0);
-        assertEquals(updatedRecipe.getName(), updatedRecipeResult.getName());
-        assertEquals(updatedRecipe.getDescription(), updatedRecipeResult.getDescription());
-        assertEquals(updatedRecipe.getServings(), updatedRecipeResult.getServings());
-        assertEquals(updatedRecipe.isVegan(), updatedRecipeResult.isVegan());
-        assertEquals(updatedRecipe.isVegetarian(), updatedRecipeResult.isVegetarian());
-        assertEquals(updatedRecipe.isLactose(), updatedRecipeResult.isLactose());
-        assertEquals(updatedRecipe.isGluten(), updatedRecipeResult.isGluten());
-    }
-
-    @Test
-    void testUpdateOwnRecipe_UserDoesNotExist() {
-        // Arrange
-        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.updateOwnRecipe("nonexistentUser", new Recipe())
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testUpdateOwnRecipe_UserExistsNoOwnRecipes() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-        existingUser.setOwnRecipes(new ArrayList<>());
-
-        Recipe updatedRecipe = new Recipe();
-        updatedRecipe.setId(1);
-        updatedRecipe.setName("Updated Recipe");
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-        when(mockUserRepository.save(existingUser)).thenReturn(existingUser);
-
-        // Act
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.updateOwnRecipe(existingUser.getUsername(), updatedRecipe)
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testUpdateOwnRecipe_RecipeNotFound() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe existingRecipe = new Recipe();
-        existingRecipe.setId(1);
-        existingRecipe.setName("Existing Recipe");
-
-        existingUser.setOwnRecipes(new ArrayList<>(List.of(existingRecipe)));
-
-        Recipe updatedRecipe = new Recipe();
-        updatedRecipe.setId(2);
-        updatedRecipe.setName("Updated Recipe");
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.updateOwnRecipe(existingUser.getUsername(), updatedRecipe)
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testDeleteOwnRecipe_UserExists() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe existingRecipe = new Recipe();
-        existingRecipe.setId(1);
-        existingRecipe.setName("Existing Recipe");
-
-        existingUser.setOwnRecipes(new ArrayList<>(List.of(existingRecipe)));
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-        when(mockUserRepository.save(existingUser)).thenReturn(existingUser);
-
-        // Act
-        userServiceUnderTest.deleteOwnRecipe(existingUser.getUsername(), existingRecipe.getId());
-
-        // Assert
-        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
-        verify(mockUserRepository, times(1)).save(existingUser);
-
-        List<Recipe> ownRecipes = existingUser.getOwnRecipes();
-        assertNotNull(ownRecipes);
-        assertTrue(ownRecipes.isEmpty());
-    }
-
-    @Test
-    void testDeleteOwnRecipe_UserDoesNotExist() {
-        // Arrange
-        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.deleteOwnRecipe("nonexistentUser", 1)
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testDeleteOwnRecipe_UserExistsNoOwnRecipes() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-        existingUser.setOwnRecipes(new ArrayList<>());
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.deleteOwnRecipe(existingUser.getUsername(), 1)
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testDeleteOwnRecipe_RecipeNotFound() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe existingRecipe = new Recipe();
-        existingRecipe.setId(1);
-        existingRecipe.setName("Existing Recipe");
-
-        existingUser.setOwnRecipes(new ArrayList<>(List.of(existingRecipe)));
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.deleteOwnRecipe(existingUser.getUsername(), 2)
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testGetFavouriteRecipes_UserExists() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe favRecipe1 = new Recipe();
-        favRecipe1.setId(1);
-        favRecipe1.setName("Favorite Recipe 1");
-
-        Recipe favRecipe2 = new Recipe();
-        favRecipe2.setId(2);
-        favRecipe2.setName("Favorite Recipe 2");
-
-        existingUser.setFavouriteRecipes(new ArrayList<>(List.of(favRecipe1, favRecipe2)));
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-
-        // Act
-        List<Recipe> favouriteRecipes = userServiceUnderTest.getFavouriteRecipes(existingUser.getUsername());
-
-        // Assert
-        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
-        assertEquals(2, favouriteRecipes.size());
-        assertTrue(favouriteRecipes.contains(favRecipe1));
-        assertTrue(favouriteRecipes.contains(favRecipe2));
-    }
-
-    @Test
-    void testGetFavouriteRecipes_UserDoesNotExist() {
-        // Arrange
-        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.getFavouriteRecipes("nonexistentUser")
-        );
-
-        // Verify that findByUsername method is called
-        verify(mockUserRepository, times(1)).findByUsername("nonexistentUser");
-    }
-
-    @Test
-    void testGetFavouriteRecipes_NoFavouriteRecipes() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-        existingUser.setFavouriteRecipes(new ArrayList<>());
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-
-        // Act
-        List<Recipe> favouriteRecipes = userServiceUnderTest.getFavouriteRecipes(existingUser.getUsername());
-
-        // Assert
-        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
-        assertTrue(favouriteRecipes.isEmpty());
-    }
-
-    @Test
-    void testAddToMyFavouriteRecipes_UserExistsAndRecipeExists() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe existingRecipe = new Recipe();
-        existingRecipe.setId(1);
-        existingRecipe.setName("Existing Recipe");
-
-        existingUser.setFavouriteRecipes(new ArrayList<>());
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-        when(mockRecipeRepository.findById(existingRecipe.getId())).thenReturn(Optional.of(existingRecipe));
-
-        // Act
-        userServiceUnderTest.addToMyFavouriteRecipes(existingUser.getUsername(), existingRecipe.getId());
-
-        // Assert
-        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
-        verify(mockRecipeRepository, times(1)).findById(existingRecipe.getId());
-
-        List<Recipe> favouriteRecipes = existingUser.getFavouriteRecipes();
-        assertNotNull(favouriteRecipes);
-        assertEquals(1, favouriteRecipes.size());
-        assertTrue(favouriteRecipes.contains(existingRecipe));
-
-        verify(mockUserRepository, times(1)).save(existingUser);
-    }
-
-    @Test
-    void testAddToMyFavouriteRecipes_UserDoesNotExist() {
-        // Arrange
-        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.addToMyFavouriteRecipes("nonexistentUser", 1)
-        );
-
-        // Verify that findById method is not called
-        verify(mockRecipeRepository, never()).findById(any());
-    }
-
-    @Test
-    void testAddToMyFavouriteRecipes_RecipeDoesNotExist() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-        when(mockRecipeRepository.findById(1)).thenReturn(Optional.empty());
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.addToMyFavouriteRecipes(existingUser.getUsername(), 1)
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testAddToMyFavouriteRecipes_RecipeAlreadyInFavorites() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe existingRecipe = new Recipe();
-        existingRecipe.setId(1);
-        existingRecipe.setName("Existing Recipe");
-
-        existingUser.setFavouriteRecipes(new ArrayList<>(List.of(existingRecipe)));
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-        when(mockRecipeRepository.findById(existingRecipe.getId())).thenReturn(Optional.of(existingRecipe));
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.addToMyFavouriteRecipes(existingUser.getUsername(), existingRecipe.getId())
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testRemoveFromFavouriteRecipes_UserExists() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe existingRecipe = new Recipe();
-        existingRecipe.setId(1);
-        existingRecipe.setName("Existing Recipe");
-
-        existingUser.setFavouriteRecipes(new ArrayList<>(List.of(existingRecipe)));
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-        when(mockUserRepository.save(existingUser)).thenReturn(existingUser);
-
-        // Act
-        userServiceUnderTest.removeFromFavouriteRecipes(existingUser.getUsername(), existingRecipe.getId());
-
-        // Assert
-        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
-        verify(mockUserRepository, times(1)).save(existingUser);
-
-        List<Recipe> favouriteRecipes = existingUser.getFavouriteRecipes();
-        assertNotNull(favouriteRecipes);
-        assertTrue(favouriteRecipes.isEmpty());
-    }
-
-    @Test
-    void testRemoveFromFavouriteRecipes_UserDoesNotExist() {
-        // Arrange
-        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.removeFromFavouriteRecipes("nonexistentUser", 1)
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testRemoveFromFavouriteRecipes_UserExistsNoFavouriteRecipes() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-        existingUser.setFavouriteRecipes(new ArrayList<>());
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.removeFromFavouriteRecipes(existingUser.getUsername(), 1)
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
-    void testRemoveFromFavouriteRecipes_RecipeNotFound() {
-        // Arrange
-        User existingUser = new User();
-        existingUser.setUsername("existingUser");
-
-        Recipe existingRecipe = new Recipe();
-        existingRecipe.setId(1);
-        existingRecipe.setName("Existing Recipe");
-
-        existingUser.setFavouriteRecipes(new ArrayList<>(List.of(existingRecipe)));
-
-        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
-
-        // Act and Assert
-        assertThrows(IllegalArgumentException.class, () ->
-                userServiceUnderTest.removeFromFavouriteRecipes(existingUser.getUsername(), 2)
-        );
-
-        // Verify that save method is not called
-        verify(mockUserRepository, never()).save(any());
-    }
-
-    @Test
     void testLogin_ValidCredentials() {
         // Arrange
         String email = "johndoe@example.com";
@@ -829,6 +288,547 @@ class UserControllerTest {
 
         // Verify that findByEmail method is called once with the correct email
         verify(mockUserRepository, times(1)).findByEmail(email);
+    }
+
+    @Test
+    void testGetAllOwnRecipes_UserExists() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+        existingUser.setOwnRecipes(Collections.singletonList(new Recipe()));
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act
+        List<Recipe> result = userServiceUnderTest.getAllOwnRecipes(existingUser.getUsername());
+
+        // Assert
+        assertEquals(existingUser.getOwnRecipes(), result);
+    }
+
+    @Test
+    void testGetAllOwnRecipes_UserDoesNotExist() {
+        // Arrange
+        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.getAllOwnRecipes("nonexistentUser")
+        );
+    }
+
+    @Test
+    void testUpdateOwnRecipe_UserExists_RecipeExists() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+
+        Recipe existingRecipe = new Recipe();
+        existingRecipe.setId(1);
+        existingRecipe.setName("Old Recipe");
+        existingRecipe.setDescription("Old Description");
+
+        existingUser.setOwnRecipes(Collections.singletonList(existingRecipe));
+
+        Recipe updatedRecipe = new Recipe();
+        updatedRecipe.setName("Updated Recipe");
+        updatedRecipe.setDescription("Updated Description");
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act
+        userServiceUnderTest.updateOwnRecipe(existingUser.getUsername(), 1, updatedRecipe);
+
+        // Assert
+        verify(mockUserRepository, times(1)).save(existingUser);
+        assertTrue(existingUser.getOwnRecipes().stream().anyMatch(r -> r.getName().equals("Updated Recipe")));
+    }
+
+    @Test
+    void testUpdateOwnRecipe_UserExists_RecipeNotFound() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+
+        existingUser.setOwnRecipes(new ArrayList<>());  // Empty list
+
+        Recipe updatedRecipe = new Recipe();
+        updatedRecipe.setName("Updated Recipe");
+        updatedRecipe.setDescription("Updated Description");
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.updateOwnRecipe(existingUser.getUsername(), 1, updatedRecipe)
+        );
+
+        // Verify that save method is not called
+        verify(mockUserRepository, never()).save(any());
+    }
+
+    @Test
+    void testUpdateOwnRecipe_UserDoesNotExist() {
+        // Arrange
+        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
+
+        Recipe updatedRecipe = new Recipe();
+        updatedRecipe.setName("Updated Recipe");
+        updatedRecipe.setDescription("Updated Description");
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.updateOwnRecipe("nonexistentUser", 1, updatedRecipe)
+        );
+
+        // Verify that save method is not called
+        verify(mockUserRepository, never()).save(any());
+    }
+
+    @Test
+    void testDeleteOwnRecipe_UserExists_RecipeExists() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+
+        Recipe recipeToDelete = new Recipe();
+        recipeToDelete.setId(123);
+
+        List<Recipe> ownRecipes = new ArrayList<>();
+        ownRecipes.add(recipeToDelete);
+        existingUser.setOwnRecipes(ownRecipes);
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act
+        userServiceUnderTest.deleteOwnRecipe(existingUser.getUsername(), 123);
+
+        // Assert
+        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
+        verify(mockUserRepository, times(1)).save(existingUser);
+    }
+
+    @Test
+    void testDeleteOwnRecipe_UserDoesNotExist() {
+        // Arrange
+        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.deleteOwnRecipe("nonexistentUser", 123)
+        );
+
+        // Verify that save/update methods are not called
+        verify(mockUserRepository, never()).save(any());
+    }
+
+    @Test
+    void testDeleteOwnRecipe_RecipeDoesNotExist() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.deleteOwnRecipe(existingUser.getUsername(), 123)
+        );
+
+        // Verify that save/update methods are not called
+        verify(mockUserRepository, never()).save(any());
+    }
+
+    @Test
+    void testUploadOwnRecipe_UserExists() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        Recipe newRecipe = new Recipe();
+        newRecipe.setName("New Recipe");
+
+        // Act
+        userServiceUnderTest.uploadOwnRecipe(existingUser.getUsername(), newRecipe);
+
+        // Assert
+        verify(mockUserRepository, times(1)).save(existingUser);
+        assertTrue(existingUser.getOwnRecipes().contains(newRecipe));
+    }
+
+    @Test
+    void testUploadOwnRecipe_UserDoesNotExist() {
+        // Arrange
+        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
+
+        Recipe newRecipe = new Recipe();
+        newRecipe.setName("New Recipe");
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.uploadOwnRecipe("nonexistentUser", newRecipe)
+        );
+
+        // Verify that save method is not called
+        verify(mockUserRepository, never()).save(any());
+    }
+
+    @Test
+    void testGetAllFavouriteRecipes_UserExists() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+
+        Recipe favouriteRecipe1 = new Recipe();
+        favouriteRecipe1.setId(1);
+        favouriteRecipe1.setName("Favourite Recipe 1");
+
+        Recipe favouriteRecipe2 = new Recipe();
+        favouriteRecipe2.setId(2);
+        favouriteRecipe2.setName("Favourite Recipe 2");
+
+        existingUser.setFavouriteRecipes(List.of(favouriteRecipe1, favouriteRecipe2));
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act
+        List<Recipe> result = userServiceUnderTest.getAllFavouriteRecipes(existingUser.getUsername());
+
+        // Assert
+        assertEquals(existingUser.getFavouriteRecipes(), result);
+    }
+
+    @Test
+    void testGetAllFavouriteRecipes_UserDoesNotExist() {
+        // Arrange
+        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.getAllFavouriteRecipes("nonexistentUser")
+        );
+    }
+
+    @Test
+    void testRemoveOneFromMyFavoriteRecipes_UserExistsAndRecipeExists() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+        Recipe recipeToRemove = new Recipe();
+        recipeToRemove.setId(123);
+
+        List<Recipe> favoriteRecipes = new ArrayList<>();
+        favoriteRecipes.add(recipeToRemove);
+        existingUser.setFavouriteRecipes(favoriteRecipes);
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act
+        userServiceUnderTest.removeOneFromMyFavoriteRecipes(existingUser.getUsername(), recipeToRemove.getId());
+
+        // Assert
+        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
+        verify(mockUserRepository, times(1)).save(existingUser);
+
+        // Check if the recipe has been removed from favoriteRecipes
+        assertFalse(existingUser.getFavouriteRecipes().contains(recipeToRemove));
+    }
+
+    @Test
+    void testRemoveOneFromMyFavoriteRecipes_UserDoesNotExist() {
+        // Arrange
+        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.removeOneFromMyFavoriteRecipes("nonexistentUser", 123)
+        );
+
+        // Verify that save method is not called
+        verify(mockUserRepository, never()).save(any());
+    }
+
+    @Test
+    void testRemoveOneFromMyFavoriteRecipes_UserExistsAndRecipeDoesNotExist() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+        Recipe recipeToRemove = new Recipe();
+        recipeToRemove.setId(123);
+
+        List<Recipe> favoriteRecipes = new ArrayList<>();
+        existingUser.setFavouriteRecipes(favoriteRecipes);
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.removeOneFromMyFavoriteRecipes(existingUser.getUsername(), recipeToRemove.getId())
+        );
+
+        // Verify that save method is not called
+        verify(mockUserRepository, never()).save(any());
+    }
+
+    @Test
+    void testAddToMyFavouriteRecipes_UserExists() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+        existingUser.setFavouriteRecipes(new ArrayList<>());
+
+        Recipe recipeToAdd = new Recipe();
+        recipeToAdd.setName("Favorite Recipe");
+        recipeToAdd.setDescription("Delicious dish");
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act
+        userServiceUnderTest.addToMyFavouriteRecipes(existingUser.getUsername(), recipeToAdd);
+
+        // Assert
+        assertEquals(1, existingUser.getFavouriteRecipes().size());
+        assertEquals("Favorite Recipe", existingUser.getFavouriteRecipes().get(0).getName());
+    }
+
+    @Test
+    void testAddToMyFavouriteRecipes_UserDoesNotExist() {
+        // Arrange
+        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
+
+        Recipe recipeToAdd = new Recipe();
+        recipeToAdd.setName("Favorite Recipe");
+        recipeToAdd.setDescription("Delicious dish");
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.addToMyFavouriteRecipes("nonexistentUser", recipeToAdd)
+        );
+    }
+
+    @Test
+    void testGetAllRecipesAllUserAvailable() {
+        // Arrange
+        Recipe recipe1 = new Recipe();
+        recipe1.setId(1);
+        recipe1.setName("Recipe 1");
+
+        Recipe recipe2 = new Recipe();
+        recipe2.setId(2);
+        recipe2.setName("Recipe 2");
+
+        List<Recipe> allRecipes = new ArrayList<>();
+        allRecipes.add(recipe1);
+        allRecipes.add(recipe2);
+
+        when(mockRecipeRepository.findAll()).thenReturn(allRecipes);
+
+        // Act
+        List<Recipe> result = userServiceUnderTest.getAllRecipesAllUserAvailable();
+
+        // Assert
+        assertEquals(allRecipes, result);
+    }
+
+    @Test
+    void testGetRecipesByName() {
+        // Arrange
+        String searchName = "chicken";
+
+        Recipe chickenRecipe1 = new Recipe();
+        chickenRecipe1.setId(1);
+        chickenRecipe1.setName("Chicken Curry");
+
+        Recipe chickenRecipe2 = new Recipe();
+        chickenRecipe2.setId(2);
+        chickenRecipe2.setName("Grilled Chicken");
+
+        List<Recipe> matchingRecipes = new ArrayList<>();
+        matchingRecipes.add(chickenRecipe1);
+        matchingRecipes.add(chickenRecipe2);
+
+        when(mockRecipeRepository.findByNameContainingIgnoreCase(searchName)).thenReturn(matchingRecipes);
+
+        // Act
+        List<Recipe> result = userServiceUnderTest.getRecipesByName(searchName);
+
+        // Assert
+        assertEquals(matchingRecipes, result);
+    }
+
+    @Test
+    void testGetRecipeByIncludeIngredient() {
+        // Arrange
+        String searchIngredient = "chicken";
+
+        Recipe chickenRecipe1 = new Recipe();
+        chickenRecipe1.setId(1);
+        chickenRecipe1.setName("Chicken Curry");
+        chickenRecipe1.setIngredientNames(List.of("chicken", "rice", "curry sauce"));
+
+        Recipe chickenRecipe2 = new Recipe();
+        chickenRecipe2.setId(2);
+        chickenRecipe2.setName("Grilled Chicken");
+        chickenRecipe2.setIngredientNames(List.of("chicken", "lemon", "garlic"));
+
+        List<Recipe> matchingRecipes = new ArrayList<>();
+        matchingRecipes.add(chickenRecipe1);
+        matchingRecipes.add(chickenRecipe2);
+
+        when(mockRecipeRepository.findByIngredientNamesContainingIgnoreCase(searchIngredient)).thenReturn(matchingRecipes);
+
+        // Act
+        List<Recipe> result = userServiceUnderTest.getRecipeByIncludeIngredient(searchIngredient);
+
+        // Assert
+        assertEquals(matchingRecipes, result);
+    }
+
+    @Test
+    void testGetRecipeIfIncludeSpecialDemand() {
+        // Arrange
+        Recipe specialRecipe1 = new Recipe();
+        specialRecipe1.setId(1);
+        specialRecipe1.setName("Special Recipe 1");
+        specialRecipe1.setVegan(true);
+        specialRecipe1.setVegetarian(true);
+        specialRecipe1.setLactose(true);
+        specialRecipe1.setGluten(true);
+
+        Recipe specialRecipe2 = new Recipe();
+        specialRecipe2.setId(2);
+        specialRecipe2.setName("Special Recipe 2");
+        specialRecipe2.setVegan(true);
+        specialRecipe2.setVegetarian(false);
+        specialRecipe2.setLactose(true);
+        specialRecipe2.setGluten(true);
+
+        List<Recipe> specialRecipes = new ArrayList<>();
+        specialRecipes.add(specialRecipe1);
+        specialRecipes.add(specialRecipe2);
+
+        when(mockRecipeRepository.findByVeganIsTrueAndVegetarianIsTrueAndLactoseIsTrueAndGlutenIsTrue()).thenReturn(specialRecipes);
+
+        // Act
+        List<Recipe> result = userServiceUnderTest.getRecipeIfIncludeSpecialDemand();
+
+        // Assert
+        assertEquals(specialRecipes, result);
+    }
+
+    @Test
+    void testGetRecipeIfNotIncludeSpecialDemand() {
+        // Arrange
+        Recipe nonVeganNonVegetarianNonGlutenFreeRecipe1 = new Recipe();
+        nonVeganNonVegetarianNonGlutenFreeRecipe1.setId(1);
+        nonVeganNonVegetarianNonGlutenFreeRecipe1.setName("Non-Vegan Non-Vegetarian Non-Gluten-Free Dish");
+        nonVeganNonVegetarianNonGlutenFreeRecipe1.setVegan(false);
+        nonVeganNonVegetarianNonGlutenFreeRecipe1.setVegetarian(false);
+        nonVeganNonVegetarianNonGlutenFreeRecipe1.setLactose(true); // Can contain lactose
+        nonVeganNonVegetarianNonGlutenFreeRecipe1.setGluten(false);
+
+        Recipe nonVeganNonVegetarianNonGlutenFreeRecipe2 = new Recipe();
+        nonVeganNonVegetarianNonGlutenFreeRecipe2.setId(2);
+        nonVeganNonVegetarianNonGlutenFreeRecipe2.setName("Another Non-Vegan Non-Vegetarian Non-Gluten-Free Dish");
+        nonVeganNonVegetarianNonGlutenFreeRecipe2.setVegan(false);
+        nonVeganNonVegetarianNonGlutenFreeRecipe2.setVegetarian(false);
+        nonVeganNonVegetarianNonGlutenFreeRecipe2.setLactose(true); // Can contain lactose
+        nonVeganNonVegetarianNonGlutenFreeRecipe2.setGluten(false);
+
+        List<Recipe> nonVeganNonVegetarianNonGlutenFreeRecipes = new ArrayList<>();
+        nonVeganNonVegetarianNonGlutenFreeRecipes.add(nonVeganNonVegetarianNonGlutenFreeRecipe1);
+        nonVeganNonVegetarianNonGlutenFreeRecipes.add(nonVeganNonVegetarianNonGlutenFreeRecipe2);
+
+        when(mockRecipeRepository.findByVeganIsFalseAndVegetarianIsFalseAndLactoseIsFalseAndGlutenIsFalse())
+                .thenReturn(nonVeganNonVegetarianNonGlutenFreeRecipes);
+
+        // Act
+        List<Recipe> result = userServiceUnderTest.getRecipeIfNotIncludeSpecialDemand();
+
+        // Assert
+        assertEquals(nonVeganNonVegetarianNonGlutenFreeRecipes, result);
+    }
+
+    @Test
+    void testUpdateRecipeServings() {
+        // Arrange
+        Integer recipeId = 1;
+        Integer newServings = 4;
+
+        User user = new User();
+        Recipe recipe = new Recipe();
+        recipe.setId(recipeId);
+
+        when(mockRecipeRepository.findById(recipeId)).thenReturn(Optional.of(recipe));
+
+        // Act
+        userServiceUnderTest.updateRecipeServings(recipeId, newServings);
+
+        // Assert
+        verify(mockRecipeRepository, times(1)).findById(recipeId);
+        verify(mockRecipeRepository, times(1)).save(recipe);
+
+        // Add additional assertions based on your specific requirements
+    }
+
+    @Test
+    void testUpdateRecipeServings_RecipeNotFound() {
+        // Arrange
+        Integer recipeId = 1;
+        Integer newServings = 4;
+
+        when(mockRecipeRepository.findById(recipeId)).thenReturn(Optional.empty());
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> userServiceUnderTest.updateRecipeServings(recipeId, newServings));
+
+        // Verify that findById is called
+        verify(mockRecipeRepository, times(1)).findById(recipeId);
+        // Verify that save is not called
+        verify(mockRecipeRepository, never()).save(any());
+    }
+
+    @Test
+    void testUpdateRecipeIngredientAmounts() {
+        // Arrange
+        Integer recipeId = 1;
+        List<Integer> newIngredientAmounts = Arrays.asList(100, 200, 300);
+
+        User user = new User();
+        Recipe recipe = new Recipe();
+        recipe.setId(recipeId);
+
+        when(mockRecipeRepository.findById(recipeId)).thenReturn(Optional.of(recipe));
+
+        // Act
+        userServiceUnderTest.updateRecipeIngredientAmounts(recipeId, newIngredientAmounts);
+
+        // Assert
+        verify(mockRecipeRepository, times(1)).findById(recipeId);
+        verify(mockRecipeRepository, times(1)).save(recipe);
+
+        // Add additional assertions based on your specific requirements
+    }
+
+    @Test
+    void testUpdateRecipeIngredientAmounts_RecipeNotFound() {
+        // Arrange
+        Integer recipeId = 1;
+        List<Integer> newIngredientAmounts = Arrays.asList(100, 200, 300);
+
+        when(mockRecipeRepository.findById(recipeId)).thenReturn(Optional.empty());
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> userServiceUnderTest.updateRecipeIngredientAmounts(recipeId, newIngredientAmounts));
+
+        // Verify that findById is called
+        verify(mockRecipeRepository, times(1)).findById(recipeId);
+        // Verify that save is not called
+        verify(mockRecipeRepository, never()).save(any());
     }
 
 }

@@ -1,19 +1,11 @@
 package com.example.therealcookbook.Recipes;
 
-import com.example.therealcookbook.Ingredients.Ingredient;
 import com.example.therealcookbook.Users.User;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "recipes")
@@ -34,11 +26,54 @@ public class Recipe {
     private boolean lactose;
     private boolean gluten;
 
+    @ElementCollection
+    private List<String> ingredientNames;
+
+    @ElementCollection
+    private List<Integer> ingredientAmounts;
+
+    @ElementCollection
+    private List<String> ingredientMeasures;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Ingredient> ingredients;
+    @PrePersist
+    @PreUpdate
+    private void prepareData() {
+        this.name = this.name.toLowerCase();
+        this.description = this.description.toLowerCase();
+
+        if (this.ingredientNames != null) {
+            this.ingredientNames = this.ingredientNames.stream()
+                    .map(String::toLowerCase)
+                    .collect(Collectors.toList());
+        }
+
+        if (this.ingredientMeasures != null) {
+            this.ingredientMeasures = this.ingredientMeasures.stream()
+                    .map(String::toLowerCase)
+                    .collect(Collectors.toList());
+        }
+    }
+
+    public void updateServings(Integer newServings) {
+        this.servings = newServings;
+        // Update ingredient amounts accordingly based on the new servings
+        updateIngredientAmounts(newServings);
+    }
+
+    private void updateIngredientAmounts(Integer newServings) {
+        // Calculate new ingredient amounts based on the ratio of new servings to original servings
+        // Update ingredient amounts accordingly
+    }
+
+    public void updateIngredientAmounts(List<Integer> newIngredientAmounts) {
+        // Update ingredient amounts with the provided list
+        this.ingredientAmounts = newIngredientAmounts;
+    }
+
+
 
 }
