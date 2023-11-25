@@ -6,16 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc730f5-3822-4102-9185-1769e87a03e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/therealcookbook.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/therealcookbook.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +76,7 @@
       <recent name="com.example.therealcookbook.Users" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.TherealcookbookApplication">
+  <component name="RunManager" selected="JUnit.UserControllerTest">
     <configuration name="CaloryTableControllerTest.testToTheTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="therealcookbook" />
       <extension name="coverage">
@@ -143,7 +140,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.testRegisterNewUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testRemoveFromMyFavouriteRecipes_UserHasNoFavoriteRecipes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="therealcookbook" />
       <extension name="coverage">
         <pattern>
@@ -153,7 +150,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.therealcookbook.Users" />
       <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.Users.UserControllerTest" />
-      <option name="METHOD_NAME" value="testRegisterNewUser" />
+      <option name="METHOD_NAME" value="testRemoveFromMyFavouriteRecipes_UserHasNoFavoriteRecipes" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.UserControllerTest.testRemoveFromMyFavouriteRecipes_UserHasNoFavoriteRecipes" />
         <item itemvalue="JUnit.CaloryTableControllerTest.testToTheTable_CaloryTableServiceReturnsNoItems" />
         <item itemvalue="JUnit.CaloryTableControllerTest.testToTheTable" />
-        <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="JUnit.UserControllerTest.testGetAllUsers" />
-        <item itemvalue="JUnit.UserControllerTest.testRegisterNewUser" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +186,7 @@
       <workItem from="1700814410216" duration="1628000" />
       <workItem from="1700816060999" duration="13607000" />
       <workItem from="1700845378967" duration="5547000" />
-      <workItem from="1700903459582" duration="1990000" />
+      <workItem from="1700903459582" duration="7367000" />
     </task>
     <servers />
   </component>
@@ -201,7 +198,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java</url>
-          <line>34</line>
+          <line>37</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
