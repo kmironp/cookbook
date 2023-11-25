@@ -20,15 +20,12 @@ const Register = () => {
     email:'',
     username:'',
     password:'',
-    pwagain:''
-
   });
 
-  const[users,setUsers] = useState([])
-  const AddUser = (user) => {
-      /*axios.post("http://localhost:8081/api/v1/Users/save")*/
-     console.log("Hozzáadva")
-  }
+  const [pwconfirm,setPwcon] = useState({
+    pwagain:''
+  })
+ 
 
   const handleInputChange = (e) =>{
     const {name, value} = e.target;
@@ -38,20 +35,33 @@ const Register = () => {
       [name] : value
 
     })
+
+    setPwcon({
+      ...pwconfirm,
+      [name] : value
+    })
   }
+
+  const AddUser = (user) => {
+  axios.post("http://localhost:8081/api/v1/Users/userregister", user)
+   console.log("Hozzáadva")
+  }
+
 
   const onSubmit = (e) =>{
     e.preventDefault();
-    if(user["password"] === user["pwagain"])
+    if(user["password"] === pwconfirm["pwagain"])
     {
-      AddUser
-
+      AddUser(user);
       setUser({
         'email':'',
         'username':'',
-        'password':'',
+        'password':''
+      })
+      setPwcon({
         'pwagain':''
       })
+      onLoginTextClick()
     }else(console.log("Pw nem egyezik!"))
   }
 
@@ -90,7 +100,8 @@ const Register = () => {
                   <img className="vector-icon" alt="" src="/vector-11.svg" />
                   
                   <input className="username-or-input3" 
-                  type="text" 
+                  type="text"
+                  placeholder="Email" 
                   name="email" 
                   value={user['email']} 
                   onChange={handleInputChange}
@@ -100,7 +111,8 @@ const Register = () => {
                   <div className="formbtn7" />
                   <img className="vector-icon" alt="" src="/vector-11.svg" />
                   <input className="username-or-input3" 
-                  type="text" 
+                  type="text"
+                  placeholder="Felhasználónév"
                   name="username" 
                   value={user['username']} 
                   onChange={handleInputChange}
@@ -110,7 +122,8 @@ const Register = () => {
                   <div className="formbtn7" />
                   <img className="vector-icon" alt="" src="/vector-11.svg" />
                   <input className="username-or-input3" 
-                  type="text" 
+                  type="password"
+                  placeholder="Jelszó" 
                   name="password" 
                   value={user['password']} 
                   onChange={handleInputChange}
@@ -121,15 +134,15 @@ const Register = () => {
                   <img className="vector-icon" alt="" src="/vector-11.svg" />
                   
                   <input className="username-or-input3" 
-                  type="text" 
+                  type="password"
+                  placeholder="Jelszó újra" 
                   name="pwagain" 
-                  value={user['pwagain']} 
+                  value={pwconfirm['pwagain']} 
                   onChange={handleInputChange}
                   />
                 </div>
-                <button
-                  className="standardbutton-container"
-                  onClick={onGroupContainer2Click}>
+                <button 
+                  className="standardbutton-container">
                   <div className="standardbutton3">
                     <div className="formbtn5" />
                     <div className="ok3">Sign up</div>

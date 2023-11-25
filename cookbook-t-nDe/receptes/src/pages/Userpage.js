@@ -10,7 +10,7 @@ const Userpage = () => {
   }, [navigate]);
 
   const onFrameContainer5Click = useCallback(() => {
-    navigate("/");
+    navigate("/Changepw");
   }, [navigate]);
 
   const onReceptekTextClick = useCallback(() => {

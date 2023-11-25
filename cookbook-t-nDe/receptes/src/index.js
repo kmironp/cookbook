@@ -4,13 +4,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "./global.css";
+import AuthProvider from "./context/AuthProvider";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
   <BrowserRouter>
+  <AuthProvider>
     <App />
+  </AuthProvider>
+    
+
   </BrowserRouter>
 );
 

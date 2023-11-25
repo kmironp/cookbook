@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Feltoltes.css";
 
@@ -16,6 +16,22 @@ const Feltoltes = () => {
   const onGroupIconClick = useCallback(() => {
     navigate("/userpage");
   }, [navigate]);
+
+  const [hozzavalo, setHozza] = useState({
+    nev:'',
+    menny:'',
+    mertegys:'',
+  });
+
+  const handleInputChange = (e) =>{
+    const {name, value} = e.target;
+
+    setHozza({
+      ...hozzavalo,
+      [name] : value
+
+    })
+  }
 
   return (
     <div className="feltoltes1">
@@ -54,7 +70,12 @@ const Feltoltes = () => {
           <div className="hozzavalosor">
             <div className="rectangle-group">
               <div className="group-child" />
-              <div className="hozzavalo">hozzavalo</div>
+              <input className="username-or-input3" 
+                  type="text" 
+                  name="nev" 
+                  value={hozzavalo['nev']} 
+                  onChange={handleInputChange}
+                  />
             </div>
             <div className="rectangle-container">
               <div className="group-item" />

@@ -37,7 +37,6 @@ const Tablazat = () => {
   },[])
   
   var elem = Tablazatertekek[0]
-
   return (
     <div className="tablazat">
       <div className="deskbg5">
