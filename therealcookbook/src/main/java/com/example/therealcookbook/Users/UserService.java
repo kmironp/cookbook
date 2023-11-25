@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -25,20 +26,14 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(Integer id)
-    {
-        return userRepository.findById(id);
-    }
+    public void deleteUser(String username) {
+        User user = userRepository.findByUsername(username);
 
-
-    public void deleteUser(Integer id)
-    {
-        boolean ex = userRepository.existsById(id);
-        if(!ex)
-        {
-            throw new IllegalStateException("No such user");
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
         }
-        userRepository.deleteById(id);
+
+        userRepository.deleteByUsername(username);
     }
 
     public  void saveUser(User user)
@@ -63,54 +58,38 @@ public class UserService {
     }
 
     @Transactional
-    public void updateEmail(Integer id, String username, String email) {
-        User u = userRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("No such user!"));
+    public void updateEmail(String username, String newEmail) {
+        User user = userRepository.findByUsername(username);
 
-        if(username != null && !username.isEmpty() && !Objects.equals(u.getUsername(),username))
-        {
-            u.setUsername(username);
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
         }
-        if(email != null && !email.isEmpty() && !Objects.equals(u.getEmail(),email))
-        {
-            Optional<User> optionalUser = userRepository.findUserByEmail(email);
-            if(optionalUser.isPresent())
-            {
-                throw new IllegalStateException("Email already in use");
-            }
-            u.setEmail(email);
+
+        User userWithNewEmail = userRepository.findByEmail(newEmail);
+
+        if (userWithNewEmail != null && !userWithNewEmail.getUsername().equals(username)) {
+            throw new IllegalArgumentException("Email " + newEmail + " is already in use");
         }
+
+        user.setEmail(newEmail);
+        userRepository.save(user);
     }
 
-    public void updatePw(Integer id,String email,String oldPw, String pw, String tempPw)
-    {
-        Optional<User> u = userRepository.findUserByEmail(email);
+    public void updatePassword(String username, String oldPassword, String newPassword) {
+        User user = userRepository.findByUsername(username);
 
-        if(u.isPresent())
-        {
-            User us = u.get();
-            if(Objects.equals(us.getPassword(), pw))
-            {
-                throw new IllegalStateException(
-                        "New password can't be the same as the old password");
-            }
-            else if(pw.length() < 8)
-            {
-                throw new IllegalStateException(
-                        "Password must be have least 8 characters!");
-
-            }
-            else if(Objects.equals(pw,tempPw) && Objects.equals(oldPw,us.getPassword()))
-            {
-                us.setPassword(pw);
-            }
-            else
-            {
-                throw new IllegalStateException(
-                        "The 2 passwords must match!");
-
-            }
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
         }
+
+        // Check if the old password matches the stored password
+        if (!user.getPassword().equals(oldPassword)) {
+            throw new IllegalArgumentException("Old password is incorrect");
+        }
+
+        // Update the password
+        user.setPassword(newPassword);
+        userRepository.save(user);
     }
 
     public String getUsername(Integer id)

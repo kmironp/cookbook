@@ -3,6 +3,7 @@ package com.example.therealcookbook.Users;
 import com.example.therealcookbook.Recipes.Recipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import java.util.Collections;
@@ -10,8 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 class UserControllerTest {
@@ -20,6 +21,12 @@ class UserControllerTest {
     private UserService mockUserService;
 
     private UserController userControllerUnderTest;
+
+    @Mock
+    private UserRepository mockUserRepository;
+
+    @InjectMocks
+    private UserService userServiceUnderTest;
 
     @BeforeEach
     void setUp() {
@@ -67,30 +74,124 @@ class UserControllerTest {
     }
 
     @Test
-    void testDeleteUser() {
-        // Run the test
-        userControllerUnderTest.DeleteUser(1);
+    void testDeleteUser_UserExists() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
 
-        // Verify the results
-        verify(mockUserService).deleteUser(1);
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act
+        userServiceUnderTest.deleteUser(existingUser.getUsername());
+
+        // Assert
+        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
+        verify(mockUserRepository, times(1)).deleteByUsername(existingUser.getUsername());
     }
 
     @Test
-    void testUpdateUser() {
-        // Run the test
-        userControllerUnderTest.updateUser(1, "John", "john@example.com");
+    void testDeleteUser_UserDoesNotExist() {
+        // Arrange
+        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
 
-        // Verify the results
-        verify(mockUserService).updateEmail(1, "John", "john@example.com");
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.deleteUser("nonexistentUser")
+        );
+
+        // Verify that delete method is not called
+        verify(mockUserRepository, never()).deleteByUsername(any());
     }
 
     @Test
-    void testUpdatePw() {
-        // Run the test
-        userControllerUnderTest.updatePw(1, "test@example.com", "oldPassword", "newPassword", "tempPassword");
+    void testUpdateEmail_UserExists_NewEmailNotInUse() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+        existingUser.setEmail("oldEmail@example.com");
 
-        // Verify the results
-        verify(mockUserService).updatePw(1, "test@example.com", "oldPassword", "newPassword", "tempPassword");
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+        when(mockUserRepository.findByEmail("newEmail@example.com")).thenReturn(null);
+
+        // Act
+        userServiceUnderTest.updateEmail(existingUser.getUsername(), "newEmail@example.com");
+
+        // Assert
+        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
+        verify(mockUserRepository, times(1)).findByEmail("newEmail@example.com");
+        verify(mockUserRepository, times(1)).save(existingUser);
+    }
+
+    @Test
+    void testUpdateEmail_NewEmailInUse() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+        existingUser.setEmail("oldEmail@example.com");
+
+        User userWithNewEmail = new User();
+        userWithNewEmail.setUsername("otherUser");
+        userWithNewEmail.setEmail("newEmail@example.com");
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+        when(mockUserRepository.findByEmail("newEmail@example.com")).thenReturn(userWithNewEmail);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.updateEmail(existingUser.getUsername(), "newEmail@example.com")
+        );
+
+        // Verify that save/update methods are not called
+        verify(mockUserRepository, never()).save(any());
+    }
+
+    @Test
+    void testUpdatePassword_UserExists_CorrectOldPassword() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+        existingUser.setPassword("oldPassword");
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act
+        userServiceUnderTest.updatePassword(existingUser.getUsername(), "oldPassword", "newPassword");
+
+        // Assert
+        verify(mockUserRepository, times(1)).findByUsername(existingUser.getUsername());
+        verify(mockUserRepository, times(1)).save(existingUser);
+    }
+
+    @Test
+    void testUpdatePassword_UserDoesNotExist() {
+        // Arrange
+        when(mockUserRepository.findByUsername("nonexistentUser")).thenReturn(null);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.updatePassword("nonexistentUser", "oldPassword", "newPassword")
+        );
+
+        // Verify that save/update methods are not called
+        verify(mockUserRepository, never()).save(any());
+    }
+
+    @Test
+    void testUpdatePassword_IncorrectOldPassword() {
+        // Arrange
+        User existingUser = new User();
+        existingUser.setUsername("existingUser");
+        existingUser.setPassword("oldPassword");
+
+        when(mockUserRepository.findByUsername(existingUser.getUsername())).thenReturn(existingUser);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () ->
+                userServiceUnderTest.updatePassword(existingUser.getUsername(), "wrongPassword", "newPassword")
+        );
+
+        // Verify that save/update methods are not called
+        verify(mockUserRepository, never()).save(any());
     }
 
     @Test
@@ -164,7 +265,7 @@ class UserControllerTest {
         // Verify the results
         assertEquals(1, result.size(), "Expected an empty list of recipes");
     }
-/*
+
     @Test
     void testEditOwnRec() {
         // Setup: Mock UserService to edit the own recipe
@@ -206,5 +307,5 @@ class UserControllerTest {
         // Verify the results
         verify(mockUserService).deleteFavRec(1, 1);
     }
-*/
+
 }

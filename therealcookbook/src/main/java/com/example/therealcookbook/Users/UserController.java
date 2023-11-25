@@ -26,7 +26,7 @@ public class UserController {
 
     @PostMapping("userregister")
     public void registerNewUser(@RequestBody User user)
-    {   
+    {
         userService.saveUser(user);
     }
 
@@ -36,29 +36,25 @@ public class UserController {
         return userService.GetUserByEmail(email);
     }
 
-    @DeleteMapping(path = "{id}")
-    public void DeleteUser(@PathVariable("id") Integer id)
-    {
-        userService.deleteUser(id);
+    @DeleteMapping(path = "deluser")
+    public void deleteUser(@RequestParam("username") String username) {
+        userService.deleteUser(username);
     }
 
-    @PutMapping(path = "{id}")
-    public void updateUser(@PathVariable("id") Integer id,
-                           @RequestParam(required = false) String name,
-                           @RequestParam(required = false) String email)
-    {
-        userService.updateEmail(id,name,email);
+    @PutMapping(path = "updateemail")
+    public void updateEmail(
+            @RequestParam("username") String username,
+            @RequestParam("newEmail") String newEmail) {
+        userService.updateEmail(username, newEmail);
     }
+
     @PutMapping(path = "{id}/updatepw")
-    public void updatePw(@PathVariable("id") Integer id,
-                         @RequestParam(required = true) String email,
-                         @RequestParam(required = true) String oldPw,
-                         @RequestParam(required = true) String pw,
-                         @RequestParam(required = true) String tempPw)
-    {
-        userService.updatePw(id,email,oldPw,pw,tempPw);
+    public void updatePassword(
+            @RequestParam("username") String username,
+            @RequestParam("oldPassword") String oldPassword,
+            @RequestParam("newPassword") String newPassword) {
+        userService.updatePassword(username, oldPassword, newPassword);
     }
-
 
     @GetMapping("{id}/username")
     public String getUsername(@PathVariable("id") Integer id)

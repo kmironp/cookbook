@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bc730f5-3822-4102-9185-1769e87a03e5" name="Changes" comment="" />
+    <list default="true" id="6bc730f5-3822-4102-9185-1769e87a03e5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/therealcookbook.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/therealcookbook.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserService.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +31,9 @@
         <option value="JUnit5 Test Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -43,6 +58,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;mIrOnKa&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/Biboy/Documents/GitHub/cookbook/therealcookbook/src/test/java&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Biboy/Documents/GitHub/cookbook&quot;,
@@ -172,11 +188,24 @@
       <workItem from="1700808957226" duration="5429000" />
       <workItem from="1700814410216" duration="1628000" />
       <workItem from="1700816060999" duration="13607000" />
+      <workItem from="1700845378967" duration="5547000" />
+      <workItem from="1700903459582" duration="1990000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cookbook$UserControllerTest_testGetAllUsers.ic" NAME="UserControllerTest.testGetAllUsers Coverage Results" MODIFIED="1700821403951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
