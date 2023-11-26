@@ -1,0 +1,412 @@
+.katie-smith-uqs1802d0cq-unspla-icon9 {
+  position: absolute;
+  height: calc(100% - 1.2px);
+  width: 100%;
+  top: 1.2px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.bgoverlay9 {
+  background-color: var(--color-gray);
+  backdrop-filter: blur(10px);
+}
+.bgoverlay9,
+.deskbg9 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.mainwindow8 {
+  position: absolute;
+  top: calc(50% - 361px);
+  left: calc(50% - 552px);
+  border-radius: var(--br-3xs);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-whitesmoke);
+  box-sizing: border-box;
+  width: 1104px;
+  height: 722px;
+}
+.frame-child12,
+.frame-child13 {
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gainsboro);
+}
+.frame-child12 {
+  position: absolute;
+  top: 34px;
+  left: 358px;
+  width: 115px;
+  height: 55px;
+}
+.frame-child13 {
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.frame-child13,
+.rec-card-child8,
+.recept-neve11 {
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+.rec-card-child8 {
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-mini);
+  background-color: var(--color-white);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.45);
+}
+.recept-neve11 {
+  width: 96.35%;
+  left: 1.82%;
+  line-height: 200%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rec-card10,
+.rec-card11 {
+  height: 22.34%;
+  width: 28.86%;
+  top: 38.44%;
+  bottom: 39.22%;
+}
+.rec-card10 {
+  position: absolute;
+  right: 35.84%;
+  left: 35.3%;
+  cursor: pointer;
+}
+.rec-card11 {
+  right: 5.08%;
+  left: 66.06%;
+}
+.rec-card11,
+.rec-card12,
+.rec-card13 {
+  position: absolute;
+  cursor: pointer;
+}
+.rec-card12 {
+  height: 22.34%;
+  width: 28.86%;
+  top: 64.22%;
+  right: 66.61%;
+  bottom: 13.44%;
+  left: 4.54%;
+}
+.rec-card13 {
+  top: 246px;
+  left: 50px;
+  width: 318px;
+  height: 143px;
+}
+.rectangle-parent6 {
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 551px);
+  width: 1102px;
+  height: 640px;
+  text-align: center;
+}
+.hatter-kereseshez {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: #66a955;
+  width: 1102px;
+  height: 222px;
+}
+.frame-child14,
+.frame-child15,
+.frame-child16,
+.frame-child17 {
+  position: absolute;
+  height: 10.36%;
+  width: 2.09%;
+  top: 13.96%;
+  right: 21.51%;
+  bottom: 75.68%;
+  left: 76.41%;
+  background-color: var(--color-rosybrown);
+}
+.frame-child15,
+.frame-child16,
+.frame-child17 {
+  top: 35.59%;
+  bottom: 54.05%;
+}
+.frame-child16,
+.frame-child17 {
+  top: 58.11%;
+  bottom: 31.53%;
+}
+.frame-child17 {
+  top: 79.73%;
+  bottom: 9.91%;
+}
+.glutnmentes,
+.laktzmentes,
+.vegetrinus,
+.vegn {
+  position: absolute;
+  height: 20.95%;
+  width: 16.33%;
+  top: 8.56%;
+  left: 82.21%;
+  line-height: 200%;
+  display: flex;
+  align-items: center;
+}
+.laktzmentes,
+.vegetrinus,
+.vegn {
+  top: 30.18%;
+}
+.vegetrinus,
+.vegn {
+  top: 52.7%;
+}
+.vegn {
+  top: 74.32%;
+}
+.hozzval-neve {
+  flex: 1;
+  position: relative;
+  font-weight: 500;
+}
+.hozzavalo-beirasa {
+  position: absolute;
+  top: 74px;
+  left: 41px;
+  border-radius: var(--br-mini);
+  border: 1px solid #26641c;
+  box-sizing: border-box;
+  width: 497px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs);
+  font-size: var(--font-size-5xl);
+}
+.searchoutline-icon {
+  position: absolute;
+  top: 9.5px;
+  left: 15.7px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.search {
+  position: absolute;
+  top: 2.4px;
+  left: 48.3px;
+  line-height: 170%;
+  font-weight: 500;
+  transform: rotate(0.88deg);
+  transform-origin: 0 0;
+}
+.searchoutline-parent {
+  position: relative;
+  border-radius: var(--br-81xl);
+  background-color: var(--primary-c);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  border-bottom: 2px solid var(--color-black);
+  box-sizing: border-box;
+  width: 160px;
+  height: 46px;
+}
+.kereso-gomb {
+  position: absolute;
+  top: 161px;
+  left: 634px;
+  height: 43px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: var(--bt-01-size);
+}
+.receptek-keresse-hozzval {
+  position: absolute;
+  top: 18px;
+  left: 41px;
+  font-size: var(--font-size-5xl);
+  font-weight: 500;
+}
+.elvalaszto-icon {
+  position: absolute;
+  top: 18px;
+  left: 812.5px;
+  width: 1.5px;
+  height: 183px;
+}
+.circle3,
+.ellipse-div {
+  background-color: var(--color-white);
+}
+.ellipse-div {
+  position: relative;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+.circle3 {
+  border-radius: var(--br-81xl);
+  border: 2px solid var(--color-black);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-8xs);
+}
+.tartalmazza1 {
+  position: relative;
+  font-weight: 500;
+}
+.radiogombokdefaulttart1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xs);
+}
+.alap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 100px;
+}
+.tart-alap {
+  position: absolute;
+  top: 157px;
+  left: 41px;
+  width: 442px;
+  height: 36px;
+  font-size: var(--font-size-5xl);
+}
+.hatter-kereseshez-parent {
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 551px);
+  width: 1102px;
+  height: 222px;
+  color: var(--color-white);
+}
+.time9 {
+  font-weight: 500;
+  font-family: var(--sp-03);
+}
+.foodtime9 {
+  position: relative;
+  line-height: 160%;
+}
+.logo9 {
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs);
+  box-sizing: border-box;
+}
+.kaltab8,
+.receptek9 {
+  position: relative;
+  line-height: 200%;
+  font-weight: 500;
+  height: 43px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.receptek9 {
+  display: flex;
+  align-items: flex-end;
+  width: 85px;
+}
+.kaltab8 {
+  width: 140px;
+}
+.feltoltes9,
+.kaltab8,
+.menu8 {
+  display: flex;
+  align-items: flex-end;
+}
+.feltoltes9 {
+  position: relative;
+  line-height: 200%;
+  font-weight: 500;
+  width: 76px;
+  height: 43px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.menu8 {
+  width: 466px;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: var(--sp-03-size);
+  color: var(--balck-basic);
+  font-family: var(--sp-03);
+}
+.instance-child7 {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.logo-parent5 {
+  position: absolute;
+  top: 15px;
+  left: calc(50% - 525px);
+  width: 1050px;
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 28.34px;
+  color: var(--primary-c);
+  font-family: var(--font-merienda);
+}
+.mainwindow-parent4 {
+  position: absolute;
+  top: calc(50% - 360px);
+  left: calc(50% - 551px);
+  width: 1102px;
+  height: 720px;
+}
+.receptek8 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 894px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-4xl);
+  color: var(--color-dimgray);
+  font-family: var(--sp-03);
+}

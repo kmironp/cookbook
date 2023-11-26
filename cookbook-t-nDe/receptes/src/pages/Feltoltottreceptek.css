@@ -1,0 +1,252 @@
+.katie-smith-uqs1802d0cq-unspla-icon2 {
+  position: absolute;
+  height: calc(100% - 1.2px);
+  width: 100%;
+  top: 1.2px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.bgoverlay2 {
+  background-color: var(--color-gray);
+  backdrop-filter: blur(10px);
+}
+.bgoverlay2,
+.deskbg2 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.mainwindow2 {
+  position: absolute;
+  top: calc(50% - 361px);
+  left: calc(50% - 552px);
+  border-radius: var(--br-3xs);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-whitesmoke);
+  box-sizing: border-box;
+  width: 1104px;
+  height: 722px;
+}
+.prof1-icon {
+  position: absolute;
+  top: 40px;
+  left: 745px;
+  width: 47px;
+  height: 48px;
+  cursor: pointer;
+}
+.frame-child3 {
+  position: absolute;
+  height: 146.72%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: -46.72%;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gainsboro);
+}
+.rec-card-child,
+.recept-neve1 {
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+.rec-card-child {
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-mini);
+  background-color: var(--color-white);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.45);
+}
+.recept-neve1 {
+  width: 96.35%;
+  left: 1.82%;
+  line-height: 200%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rec-card,
+.rec-card1,
+.rec-card2,
+.rec-card3 {
+  position: absolute;
+  height: 22.34%;
+  width: 28.86%;
+  top: 17.73%;
+  right: 34.21%;
+  bottom: 59.92%;
+  left: 36.93%;
+  cursor: pointer;
+}
+.rec-card1,
+.rec-card2,
+.rec-card3 {
+  top: 44.45%;
+  bottom: 33.2%;
+}
+.rec-card2,
+.rec-card3 {
+  top: 17.73%;
+  right: 3.36%;
+  bottom: 59.92%;
+  left: 67.79%;
+}
+.rec-card3 {
+  top: 44.45%;
+  bottom: 33.2%;
+}
+.rec-card4,
+.rec-card5 {
+  position: absolute;
+  top: 110px;
+  left: 67px;
+  width: 318px;
+  height: 143px;
+  cursor: pointer;
+}
+.rec-card5 {
+  top: 281px;
+}
+.ltalam-feltlttt-receptek {
+  position: relative;
+  line-height: 200%;
+  font-weight: 600;
+}
+.ltalam-feltlttt-receptek-wrapper {
+  position: absolute;
+  top: 31px;
+  left: 67px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-darkolivegreen);
+  width: 349px;
+  height: 58px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-3xs);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-white);
+}
+.frame-div {
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 551px);
+  border-radius: var(--br-3xs);
+  width: 1102px;
+  height: 640px;
+  overflow: hidden;
+}
+.time2 {
+  font-weight: 500;
+  font-family: var(--sp-03);
+}
+.foodtime2 {
+  position: relative;
+  line-height: 160%;
+}
+.logo2 {
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs);
+  box-sizing: border-box;
+}
+.kaltab2,
+.receptek2 {
+  position: relative;
+  line-height: 200%;
+  font-weight: 500;
+  height: 43px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.receptek2 {
+  display: flex;
+  align-items: flex-end;
+  width: 85px;
+}
+.kaltab2 {
+  width: 140px;
+}
+.feltoltes3,
+.kaltab2,
+.menu2 {
+  display: flex;
+  align-items: flex-end;
+}
+.feltoltes3 {
+  position: relative;
+  line-height: 200%;
+  font-weight: 500;
+  width: 76px;
+  height: 43px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.menu2 {
+  width: 466px;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: var(--sp-03-size);
+  color: var(--balck-basic);
+  font-family: var(--sp-03);
+}
+.instance-inner {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.logo-container {
+  position: absolute;
+  top: 11px;
+  left: calc(50% - 525px);
+  width: 1050px;
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 28.34px;
+  color: var(--primary-c);
+  font-family: var(--font-merienda);
+}
+.mainwindow-group {
+  position: absolute;
+  top: calc(50% - 360px);
+  left: calc(50% - 551px);
+  width: 1102px;
+  height: 720px;
+}
+.feltoltottreceptek {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 884px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-4xl);
+  color: var(--color-dimgray);
+  font-family: var(--sp-03);
+}

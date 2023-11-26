@@ -1,0 +1,253 @@
+.katie-smith-uqs1802d0cq-unspla-icon4 {
+  position: absolute;
+  height: calc(100% - 1.2px);
+  width: 100%;
+  top: 1.2px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.bgoverlay4 {
+  background-color: var(--color-gray);
+  backdrop-filter: blur(10px);
+}
+.bgoverlay4,
+.deskbg4 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.frame-child5,
+.mainwindow3 {
+  position: absolute;
+  border-radius: var(--br-3xs);
+}
+.mainwindow3 {
+  top: calc(50% - 361.6px);
+  left: calc(50% - 552px);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-whitesmoke);
+  box-sizing: border-box;
+  width: 1104px;
+  height: 722px;
+}
+.frame-child5 {
+  top: calc(50% - 286.7px);
+  left: calc(50% - 551px);
+  background-color: var(--color-gainsboro);
+  width: 1102px;
+  height: 647.2px;
+}
+.hozzavalok {
+  top: calc(50% - 90.5px);
+  left: calc(50% - 510px);
+  text-align: left;
+  display: inline-block;
+  width: 1020px;
+  height: 166px;
+}
+.elkeszites,
+.elkszts1,
+.hozzavalok {
+  position: absolute;
+  line-height: 200%;
+  font-weight: 500;
+}
+.elkszts1 {
+  top: calc(50% + 75.5px);
+  left: calc(50% - 530px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 161.6px;
+  height: 46.5px;
+}
+.elkeszites {
+  top: calc(50% + 146.5px);
+  left: calc(50% - 510px);
+  text-align: left;
+  display: inline-block;
+  width: 1020px;
+  height: 187px;
+}
+.rec-card-child7,
+.recept-neve10 {
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+.rec-card-child7 {
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-mini);
+  background-color: var(--color-white);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.45);
+}
+.recept-neve10 {
+  width: 96.35%;
+  left: 1.82%;
+  line-height: 200%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rec-card9 {
+  position: absolute;
+  top: 98.1px;
+  left: 44px;
+  width: 318px;
+  height: 143px;
+  cursor: pointer;
+  color: var(--color-dimgray);
+}
+.hozzvalk1 {
+  position: absolute;
+  top: 195.1px;
+  left: 389px;
+  line-height: 200%;
+  font-weight: 500;
+}
+.adagok-szma1 {
+  position: absolute;
+  top: 118.1px;
+  left: 329px;
+  font-size: var(--font-size-9xl);
+  font-family: var(--font-inter);
+  display: inline-block;
+  width: 330px;
+  height: 51px;
+}
+.time4 {
+  font-weight: 500;
+  font-family: var(--sp-03);
+}
+.foodtime4 {
+  position: relative;
+  line-height: 160%;
+}
+.logo4 {
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs);
+  box-sizing: border-box;
+}
+.kaltab4,
+.receptek4 {
+  position: relative;
+  line-height: 200%;
+  font-weight: 500;
+  height: 43px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.receptek4 {
+  display: flex;
+  align-items: flex-end;
+  width: 85px;
+}
+.kaltab4 {
+  width: 140px;
+}
+.feltoltes5,
+.kaltab4,
+.menu4 {
+  display: flex;
+  align-items: flex-end;
+}
+.feltoltes5 {
+  position: relative;
+  line-height: 200%;
+  font-weight: 500;
+  width: 76px;
+  height: 43px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.menu4 {
+  width: 466px;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: var(--sp-03-size);
+  color: var(--balck-basic);
+  font-family: var(--sp-03);
+}
+.instance-child1 {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.logo-parent2 {
+  position: absolute;
+  top: 9.1px;
+  left: calc(50% - 525px);
+  width: 1050px;
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 28.34px;
+  color: var(--primary-c);
+  font-family: var(--font-merienda);
+}
+.addbtn-child {
+  top: 3.7px;
+  left: 9.1px;
+  border-radius: var(--br-10xs);
+  width: 76px;
+  height: 76px;
+}
+.add1,
+.addbtn-child,
+.addbtn1 {
+  position: absolute;
+}
+.add1 {
+  top: 69px;
+  left: 4px;
+  line-height: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+}
+.addbtn1 {
+  top: 92.1px;
+  left: 1005px;
+  background-color: var(--color-gainsboro);
+  width: 83px;
+  height: 115px;
+}
+.mainwindow-parent1 {
+  position: absolute;
+  top: calc(50% - 364.1px);
+  left: calc(50% - 551px);
+  width: 1102px;
+  height: 721.2px;
+}
+.recept {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 894px;
+  text-align: center;
+  font-size: var(--font-size-4xl);
+  color: var(--color-black);
+  font-family: var(--sp-03);
+}
