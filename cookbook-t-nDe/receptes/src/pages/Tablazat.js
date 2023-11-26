@@ -27,7 +27,7 @@ const Tablazat = () => {
   
 
   const getTablazatertekek = () => {
-    axios.get('http://localhost:8081/api/v1/CaloryTable/listallwithoutcat')
+    axios.get('http://localhost:8081/api/v1/CaloryTable/listallwithoutcat!')
     .then(response => setTablazat(response.data))
   }
   

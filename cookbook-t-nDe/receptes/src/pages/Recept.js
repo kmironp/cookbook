@@ -1,13 +1,10 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Recept.css";
 
 const Recept = () => {
   const navigate = useNavigate();
-
-  const onRecCardContainerClick = useCallback(() => {
-    navigate("/recept");
-  }, [navigate]);
 
   const onReceptekTextClick = useCallback(() => {
     navigate("/receptek");
@@ -25,6 +22,17 @@ const Recept = () => {
     navigate("/userpage");
   }, [navigate]);
 
+  const OneMorePerson = async () => {
+
+  };
+
+  const OneLessPerson = async () => {
+
+  };
+
+
+  // SZERINTEM TÁBLÁZATOKBA KÉNE !!!!!
+
   return (
     <div className="recept">
       <div className="deskbg4">
@@ -38,14 +46,13 @@ const Recept = () => {
       <div className="mainwindow-parent1">
         <div className="mainwindow3" />
         <div className="frame-child5" />
-        <div className="hozzavalok">hozzavalok</div>
+        <div className="hozzavalok">Hozzávalók:</div>
         <div className="elkszts1">Elkészítés:</div>
-        <div className="elkeszites">elkeszites</div>
-        <div className="rec-card9" onClick={onRecCardContainerClick}>
+        <div className="rec-card9">
           <div className="rec-card-child7" />
           <div className="recept-neve10">recept neve</div>
         </div>
-        <div className="hozzvalk1">Hozzávalók:</div>
+        <div className="hozzvalk1">Leírás:</div>
         <div className="adagok-szma1">Adagok száma:</div>
         <div className="logo-parent2">
           <div className="logo4">
@@ -72,9 +79,16 @@ const Recept = () => {
             onClick={onGroupIconClick}
           />
         </div>
+        <div className="add">
+              {/* Add the button here */}
+              <button className="add-button" onClick={OneMorePerson}>+</button>
+            </div>
+        <div className="notadd">
+              {/* Add the button here */}
+              <button className="notadd-button" onClick={OneLessPerson}>-</button>
+            </div>
         <div className="addbtn1">
           <img className="addbtn-child" alt="" src="/star-1.svg" />
-          <b className="add1">ADD</b>
         </div>
       </div>
     </div>

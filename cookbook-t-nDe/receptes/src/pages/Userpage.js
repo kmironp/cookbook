@@ -2,6 +2,32 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Userpage.css";
 
+/*
+  useEffect(() => {
+    // Fetch user data when the component mounts
+    const fetchUserData = async () => {
+      try {
+        const usernameResponse = await fetch("/api/currentUser/getusername");
+        const emailResponse = await fetch("/api/currentUser/getemail");
+
+        if (usernameResponse.ok && emailResponse.ok) {
+          const usernameData = await usernameResponse.json();
+          const emailData = await emailResponse.json();
+
+          setUsername(usernameData.username);
+          setEmail(emailData.email);
+        } else {
+          console.error("Failed to fetch user data");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []); // Run only once when the component mounts
+*/
+
 const Userpage = () => {
   const navigate = useNavigate();
 
@@ -44,6 +70,8 @@ const Userpage = () => {
             <div className="felhasznlnv-group">
               <div className="felhasznlnv1">felhasználónév</div>
               <div className="e-mail-cm1">e-mail cím</div>
+              {/*<div className="felhasznlnv1">{username}</div>    !!!!!!!!!!!???????????    valahogy úgy mint a change pwbe de se az igazi
+              <div className="e-mail-cm1">{email}</div>               !!!!!!!!!!!!!!!???????????? */}
             </div>
           </div>
           <div className="frame-child8" />

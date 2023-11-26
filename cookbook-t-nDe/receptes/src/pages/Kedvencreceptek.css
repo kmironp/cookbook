@@ -45,12 +45,11 @@
 }
 .kedvenc-receptjeim-wrapper {
   position: absolute;
-  height: 9.06%;
-  width: 23.32%;
+  height: 10%;
+  width: 30%;
   top: 5%;
-  right: 74.32%;
   bottom: 85.94%;
-  left: 2.36%;
+  left: 35%;
   border-radius: var(--br-xs);
   background-color: var(--color-darkolivegreen);
   overflow: hidden;

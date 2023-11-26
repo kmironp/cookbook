@@ -108,7 +108,6 @@
   left: 44px;
   width: 318px;
   height: 143px;
-  cursor: pointer;
   color: var(--color-dimgray);
 }
 .hozzvalk1 {
@@ -212,7 +211,14 @@
   border-radius: var(--br-10xs);
   width: 76px;
   height: 76px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
+
+.addbtn-child:active {
+  transform: scale(0.95);
+}
+
 .add1,
 .addbtn-child,
 .addbtn1 {
@@ -250,4 +256,56 @@
   font-size: var(--font-size-4xl);
   color: var(--color-black);
   font-family: var(--sp-03);
+}
+
+.add {
+  position: absolute;
+  top: 22%;
+  left: 40%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.add-button {
+  padding: 10px;
+  background-color: #40cc6f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-button:hover {
+  transform: scale(1.1);
+  background-color: #52d28b;
+}
+
+.notadd {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.notadd-button {
+  padding: 10px;
+  background-color: #40cc6f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  transition: all 0.2s ease-in-out;
+}
+
+.notadd-button:hover {
+  transform: scale(1.1);
+  background-color: #52d28b;
 }

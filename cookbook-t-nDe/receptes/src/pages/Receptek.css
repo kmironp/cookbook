@@ -196,9 +196,25 @@
   top: 74px;
   left: 41px;
   border-radius: var(--br-mini);
-  border: 1px solid #26641c;
+  border: 3px solid #26641c;
   box-sizing: border-box;
-  width: 497px;
+  width: 350px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs);
+  font-size: var(--font-size-5xl);
+}
+.recept-beirasa {
+  position: absolute;
+  top: 74px;
+  left: 430px;
+  border-radius: var(--br-mini);
+  border: 3px solid #26641c;
+  box-sizing: border-box;
+  width: 350px;
   height: 60px;
   display: flex;
   flex-direction: row;

@@ -33,6 +33,10 @@ const Feltoltes = () => {
     })
   }
 
+  const handleOneMoreRecipe = async () => {
+
+  };
+
   return (
     <div className="feltoltes1">
       <div className="deskbg-parent">
@@ -49,13 +53,12 @@ const Feltoltes = () => {
         <div className="rectangle-parent">
           <div className="rectangle-div" />
           <div className="hvhozzaadas">
-            <div className="div">+</div>
+            <div className="add">
+              {/* Add the button here */}
+              <button className="add-button" onClick={handleOneMoreRecipe}>+</button>
+            </div>
           </div>
           <div className="nyilvnos-parent">
-            <div className="nyilvnos">Nyilvános?</div>
-            <div className="circle2">
-              <div className="circle-inner" />
-            </div>
           </div>
           <div className="elkszts">{`Elkészítés: `}</div>
           <div className="recept-neve-parent">
@@ -97,31 +100,34 @@ const Feltoltes = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="rectangle-container">
             <input
-                className="mnnysg"
-                type="number"
-                name="menny"
-                placeholder="Mennyiség"
-                value={hozzavalo["mennyiseg"]} // legyen number típus
-                onChange={handleInputChange}
-              />              
-            </div>
-            <div className="group-div">
-              <div className="group-inner" />
-              <input
-                className="mrtg"
-                type="text"
-                name="mrtg"
-                placeholder="Mértékegység"
-                value={hozzavalo["mértékegység"]}
-                onChange={handleInputChange}
-              />   
-            </div>
+              className="mnnysg"
+              type="number"
+              name="menny"
+              placeholder="Mennyiség"
+              value={hozzavalo["mennyiseg"]} // legyen number típus
+              onChange={handleInputChange}
+            />
+            <div className="group-inner" />
+            <input
+              className="mrtg"
+              type="text"
+              name="mrtg"
+              placeholder="Mértékegység"
+              value={hozzavalo["mértékegység"]}
+              onChange={handleInputChange}
+            />
           </div>
           <div className="vector-parent">
             <img className="rectangle-icon" alt="" src="/rectangle-82.svg" />
-            <div className="szoveg">szoveg</div>
+            <textarea
+              className="szoveg"
+              name="leiras"
+              placeholder="Leírás"
+              value={hozzavalo["leiras"]}
+              onChange={handleInputChange}
+            />
+
           </div>
           <div className="feltlts-wrapper">
             <div className="feltlts">Feltöltés</div>

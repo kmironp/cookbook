@@ -78,8 +78,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
-  -webkit-text-stroke: 3px #fff;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.50);
+  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.25);
 }
 .edesseg,
 .kategria1 {
@@ -104,8 +104,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
-  -webkit-text-stroke: 3px #fff;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.50);
+  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.25);
 }
 .alkohols,
 .dios,
