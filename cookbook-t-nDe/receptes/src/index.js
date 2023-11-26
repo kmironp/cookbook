@@ -11,9 +11,8 @@ const root = createRoot(container);
 
 root.render(
   <BrowserRouter>
-  <AuthProvider>
+  
     <App />
-  </AuthProvider>
     
 
   </BrowserRouter>

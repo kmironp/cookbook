@@ -4,7 +4,7 @@ import "./Login.css";
 import axios from "axios";
 import AuthContext from "../context/AuthProvider";
 const Login = () => {
-  const {setAuth} = useContext(AuthContext);
+  //const {setAuth} = useContext(AuthContext);
   const navigate = useNavigate();
 
 
@@ -35,7 +35,7 @@ const Login = () => {
       e.preventDefault();
       console.log(emailpw['email'] + emailpw['password'])
       
-      try{ const resp = await axios.post("http://localhost:8081/api/v1/Users/login",
+     /* try{ const resp = await axios.post("http://localhost:8081/api/v1/Users/login",
         JSON.stringify({email: emailpw['email'], password: emailpw['password']}),
         {
           headers: {'Content-Type': 'application/json'},
@@ -48,7 +48,7 @@ const Login = () => {
 
       }catch(err){
           setErrMsg('Login failed.')
-      }
+      }*/
 
       setEmailpw({
         email:'',
