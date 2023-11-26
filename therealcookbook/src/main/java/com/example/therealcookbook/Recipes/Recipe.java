@@ -1,6 +1,7 @@
 package com.example.therealcookbook.Recipes;
 
 import com.example.therealcookbook.Users.User;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -35,6 +36,7 @@ public class Recipe {
     @ElementCollection
     private List<String> ingredientMeasures;
 
+    @Nullable
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

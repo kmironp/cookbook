@@ -35,21 +35,9 @@ const Login = () => {
       e.preventDefault();
       console.log(emailpw['email'] + emailpw['password'])
       
-     /* try{ const resp = await axios.post("http://localhost:8081/api/v1/Users/login",
-        JSON.stringify({email: emailpw['email'], password: emailpw['password']}),
-        {
-          headers: {'Content-Type': 'application/json'},
-          withCredentials: true
-        }
-        );
-        console.log(JSON.stringify(resp?.data))
-        const accesToken = resp?.data?.accesToken;
-        setAuth({emailpw,accesToken});
-
-      }catch(err){
-          setErrMsg('Login failed.')
-      }*/
-
+     /*const resp = await axios.post("http://localhost:8081/api/v1/Users/login",
+     {emal: emailpw['email'], password: emailpw['password']})*/
+        
       setEmailpw({
         email:'',
         password:''
@@ -111,7 +99,7 @@ const Login = () => {
               </div>
               <div
               className="standardbutton-wrapper"
-              //onClick={onGroupContainer2Click}
+              onClick={onGroupContainer2Click}
               >
                 <div className="standardbutton1">
                   <button type="submit" className="formbtn2" >

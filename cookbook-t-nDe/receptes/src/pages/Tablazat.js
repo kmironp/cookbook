@@ -2,10 +2,13 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Tablazat.css";
+import { useLocation } from "react-router-dom";
 
-const Tablazat = () => {
+const Tablazat = (props) => {
+  const location = useLocation();
+  console.log(location)
+  const cat = location.state
   const navigate = useNavigate();
-
   const onReceptekTextClick = useCallback(() => {
     navigate("/receptek");
   }, [navigate]);
@@ -99,7 +102,7 @@ const Tablazat = () => {
               <div className="alapanyag-100-gml-container">GI</div>
             </div>
             <div className="kategria-nv-wrapper">
-              <div className="kategria-nv">kategóriaizé</div>
+              <div className="kategria-nv">{cat}</div>
             </div>
           </div>
           <div className="logo-parent3">

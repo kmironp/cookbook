@@ -6,7 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc730f5-3822-4102-9185-1769e87a03e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/therealcookbook.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/therealcookbook.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/public/rectangle-82.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Feltoltes.css" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Feltoltes.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Feltoltes.js" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Feltoltes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Kaloriatablazatok.css" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Kaloriatablazatok.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Kedvencreceptek.css" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Kedvencreceptek.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Recept.css" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Recept.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Recept.js" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Recept.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Receptek.css" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Receptek.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Receptek.js" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Receptek.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Userpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Userpage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Userpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook-t-nDe/receptes/src/pages/Userpage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +193,7 @@
       <workItem from="1700816060999" duration="13607000" />
       <workItem from="1700845378967" duration="5547000" />
       <workItem from="1700903459582" duration="24279000" />
-      <workItem from="1700985030817" duration="4010000" />
+      <workItem from="1700985030817" duration="5153000" />
     </task>
     <servers />
   </component>

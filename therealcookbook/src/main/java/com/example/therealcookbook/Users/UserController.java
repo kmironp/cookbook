@@ -69,15 +69,10 @@ public class UserController {
         return userService.getEmail(username);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
-        User user = userService.login(email, password);
+    @PostMapping("login")
+    public User login(@RequestParam String email, @RequestParam String password) {
+        return userService.login(email, password);
 
-        if (user != null) {
-            return ResponseEntity.ok("Login successful");
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed");
-        }
     }
 
     @GetMapping("{username}/getownrecipes")

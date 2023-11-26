@@ -12,6 +12,11 @@ public class RecipeService {
         this.recipeRepository = recipeRepository;
     }
 
+    public void SaveRec(Recipe rec)
+    {
+        recipeRepository.save(rec);
+    }
+
 }
 
 

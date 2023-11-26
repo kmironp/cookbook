@@ -1,120 +1,127 @@
-import { useCallback } from "react";
+import { useCallback,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Kaloriatablazatok.css";
+import Tablazat from "./Tablazat";
+
+
 
 const Kaloriatablazatok = () => {
   const navigate = useNavigate();
 
+  const [cat,setCat] = useState('');
+
   const onEdessegContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Édességek és ropogtatnivalók'});
   }, [navigate]);
 
   const onKategriaText1Click = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Alkoholos italok'});
   }, [navigate]);
 
   const onDiosContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Diófélék és olajos magvak'});
   }, [navigate]);
 
   const onFuszerekContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Fűszerek'});
   }, [navigate]);
 
   const onGyumolcsContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Gyümölcsök és gyümölcskészítmények'});
   }, [navigate]);
 
   const onMarhaContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Marha'});
   }, [navigate]);
 
   const onSzarnyasContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Szárnyasok'});
   }, [navigate]);
 
   const onTejContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Tejtermékek'});
   }, [navigate]);
 
   const onVadContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Vad- és egyéb húsok'});
   }, [navigate]);
 
   const onBaranyContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Bárány'});
   }, [navigate]);
 
   const onGabonaContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Gabonatermékek'});
   }, [navigate]);
 
   const onHalakContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Halak és tenger gyümölcsei'});
   }, [navigate]);
 
   const onPekaruContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Pékáruk'});
   }, [navigate]);
 
   const onSzojaContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Szójatermékek és növényi tejhelyettesítők'});
   }, [navigate]);
 
   const onTesztaContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Tészták'});
   }, [navigate]);
 
   const onZoldsegContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Zöldségek és hüvelyesek'});
   }, [navigate]);
 
   const onBorjuContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Borjú'});
   }, [navigate]);
 
   const onIzesitoContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Ételízesítők és hozzávalók'});
   }, [navigate]);
 
   const onGombaContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Gombák'});
   }, [navigate]);
 
   const onHuskeszitmenyContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Húskészítmények'});
   }, [navigate]);
 
   const onSertesContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Sertés'});
   }, [navigate]);
 
   const onSzoszokContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Szószok, öntetek, krémek'});
   }, [navigate]);
 
   const onTojasContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Tojás'});
   }, [navigate]);
 
   const onZsirContainerClick = useCallback(() => {
-    navigate("/tablazat");
+    navigate("/tablazat", {state: 'Zsírok és olajok'});
   }, [navigate]);
 
   const onReceptekTextClick = useCallback(() => {
-    navigate("/receptek");
+    navigate("/receptek", {state: 'Édesség'});
   }, [navigate]);
 
   const onFeltoltesTextClick = useCallback(() => {
-    navigate("/feltoltes");
+    navigate("/feltoltes", {state: 'Édesség'});
   }, [navigate]);
 
   const onGroupIconClick = useCallback(() => {
-    navigate("/userpage");
+    navigate("/userpage", {state: 'Édesség'});
   }, [navigate]);
 
   return (
+    
     <div className="kaloriatablazatok">
+      <Tablazat cat = {cat}/>
       <div className="deskbg-group">
         <div className="deskbg8">
           <img
@@ -282,6 +289,7 @@ const Kaloriatablazatok = () => {
               src="/rectangle-7322@2x.png"
             />
             <b className="kategria">Zsírok és olajok</b>
+            
           </div>
         </div>
         <div className="logo-parent4">
@@ -309,6 +317,7 @@ const Kaloriatablazatok = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

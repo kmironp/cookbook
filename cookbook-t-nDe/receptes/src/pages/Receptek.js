@@ -79,9 +79,20 @@ const Receptek = () => {
           <b className="laktzmentes">laktózmentes</b>
           <b className="vegetrinus">vegetáriánus</b>
           <b className="vegn">vegán</b>
-          <div className="hozzavalo-beirasa">
-            <div className="hozzval-neve">Hozzávaló_neve</div>
-          </div>
+            <input
+              className="hozzavalo-beirasa"
+              type="text"
+              name="hozzval-neve"
+              placeholder="Hozzávaló neve"
+              // megoldani a beolvasást
+            />
+            <input
+              className="recept-beirasa"
+              type="text"
+              name="recept-neve"
+              placeholder="Recept neve"
+              // megoldani a beolvasást
+            />
           <div className="kereso-gomb">
             <div className="searchoutline-parent">
               <img

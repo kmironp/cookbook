@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Feltoltes.css";
+import axios from "axios";
 
 const Feltoltes = () => {
   const navigate = useNavigate();
@@ -17,21 +18,56 @@ const Feltoltes = () => {
     navigate("/userpage");
   }, [navigate]);
 
-  const [hozzavalo, setHozza] = useState({
-    nev: '',
-    menny: '',
-    mertegys: '',
+  const [recept, setRec] = useState({
+    id:1,
+    name:'',
+    servings: 0,
+    description: '',
+    vegan:false,
+    vegetarian:false,
+    lactose:false,
+    gluten:false,
+    hoznev: '',
+    hozmenny: 0,
+    hozmertegys: '',
+    
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    setHozza({
-      ...hozzavalo,
+    setRec({
+      ...recept,
       [name]: value
 
     })
   }
+
+  const AddRec = (rec) => {
+    axios.post("http://localhost:8081/api/v1/Recipe/saverec", rec)
+     
+    }
+
+  const onsubmit = (e) =>{
+    e.preventDefault();
+      AddRec(recept);
+      setRec({
+        'id':recept['id']+1,
+        'name':'',
+        'servings': 0,
+        'hoznev': '',
+        'hozmenny': 0,
+        'hozmertegys': '',
+        'description': ''
+      })
+      console.log(recept)
+    
+  }
+
+  var ingcounter = 1;
+  const handleOneMoreRecipe = async () => {
+    ingcounter++;
+  };
 
   return (
     <div className="feltoltes1">
@@ -49,13 +85,12 @@ const Feltoltes = () => {
         <div className="rectangle-parent">
           <div className="rectangle-div" />
           <div className="hvhozzaadas">
-            <div className="div">+</div>
+            <div className="add">
+              {/* Add the button here */}
+              <button className="add-button" onClick={handleOneMoreRecipe}>+</button>
+            </div>
           </div>
           <div className="nyilvnos-parent">
-            <div className="nyilvnos">Nyilvános?</div>
-            <div className="circle2">
-              <div className="circle-inner" />
-            </div>
           </div>
           <div className="elkszts">{`Elkészítés: `}</div>
           <div className="recept-neve-parent">
@@ -63,69 +98,79 @@ const Feltoltes = () => {
             <div className="recept-neve">Adagok száma:</div>
             <div className="recept-neve">Hozzávalók:</div>
           </div>
+
           <div className="frame-child1" />
           <div className="frame-child2" />
-          <div className="receptnev">
-            <input
-              className="receptnev-adagszam"
-              type="text"
-              name="receptnev"
-              placeholder="Recept neve"
-              // recept nevet menteni
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="adagszam">
-            <input
-              className="receptnev-adagszam"
-              type="number"
-              name="adagszam"
-              placeholder="Adagok száma"
-              // adag szamot menteni
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="hozzavalosor">
-            <div className="rectangle-group">
-              <div className="group-child" />
+          <form onSubmit={onsubmit}> 
+            <div className="receptnev">
               <input
-                className="group-child"
+                className="receptnev-adagszam"
                 type="text"
-                name="Hozzavalo"
-                placeholder="Hozzávaló neve"
-                value={hozzavalo["hozzavalonev"]}
+                name="name"
+                placeholder="Recept neve"
+                // recept nevet menteni
+                value={recept["name"]}
+
                 onChange={handleInputChange}
               />
             </div>
-            <div className="rectangle-container">
-            <input
+            <div className="adagszam">
+              <input
+                className="receptnev-adagszam"
+                type="number"
+                name="servings"
+                placeholder="Adagok száma"
+                // adag szamot menteni
+                value={recept["servings"]}
+
+                onChange={handleInputChange}
+              />
+            </div>
+               <div className="hozzavalosor">
+              <div className="rectangle-group">
+                <div className="group-child" />
+                <input
+                  className="group-child"
+                  type="text"
+                  name="hoznev"
+                  placeholder="Hozzávaló neve"
+                  value={recept["hoznev"]}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <input
                 className="mnnysg"
                 type="number"
-                name="menny"
+                name="hozmenny"
                 placeholder="Mennyiség"
-                value={hozzavalo["mennyiseg"]} // legyen number típus
+                value={recept["hozmenny"]} // legyen number típus
                 onChange={handleInputChange}
-              />              
-            </div>
-            <div className="group-div">
+              />
               <div className="group-inner" />
               <input
                 className="mrtg"
                 type="text"
-                name="mrtg"
+                name="hozmertegys"
                 placeholder="Mértékegység"
-                value={hozzavalo["mértékegység"]}
+                value={recept["hozmertegys"]}
                 onChange={handleInputChange}
-              />   
+              />
             </div>
-          </div>
-          <div className="vector-parent">
-            <img className="rectangle-icon" alt="" src="/rectangle-82.svg" />
-            <div className="szoveg">szoveg</div>
-          </div>
-          <div className="feltlts-wrapper">
-            <div className="feltlts">Feltöltés</div>
-          </div>
+            <div className="vector-parent">
+              <img className="rectangle-icon" alt="" src="/rectangle-82.svg" />
+              <textarea
+                className="szoveg"
+                name="description"
+                placeholder="Leírás"
+                value={recept["description"]}
+                onChange={handleInputChange}
+              />
+
+            </div>
+            <button className="feltlts-wrapper" type="submit">
+              <div className="feltlts">Feltöltés</div>
+            </button>
+          </form>
           <div className="recept-feltltse">Recept feltöltése</div>
         </div>
         <div className="logo-group">
