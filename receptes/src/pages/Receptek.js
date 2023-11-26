@@ -1,20 +1,39 @@
-import React, {useCallback, useState } from 'react';
+import React, {useCallback, useState, Component } from 'react';
+//import * as React from 'react';
 import { useNavigate } from "react-router-dom";
 import "./Receptek.css";
 
 const Receptek = () => {
   const navigate = useNavigate();
-  const [radio, setRadio] = useState()
-  const [checkedOne, setCheckedOne] = useState(false);
-  const [checkedTwo, setCheckedTwo] = useState(false);
-  
-   const handleChangeOne = () => {
-      setCheckedOne(!checkedOne);
-    };
-  
+  const [radio, setRadio] = useState();
+  const [checkedOne, setCheckedOne] = React.useState(false);
+  const [checkedTwo, setCheckedTwo] = React.useState(false);
+  const [checkedTr, setCheckedTr] = React.useState(false);
+  const [checkedFo, setCheckedFo] = React.useState(false);
+
+  const handleChangeOne = () => {
+    setCheckedOne(!checkedOne);
+  };
+
   const handleChangeTwo = () => {
-      setCheckedTwo(!checkedTwo);
-    };
+    setCheckedTwo(!checkedTwo);
+  };
+  const handleChangeTr = () => {
+    setCheckedTr(!checkedTr);
+  };
+
+  const handleChangeFo = () => {
+    setCheckedFo(!checkedFo);
+  };
+
+  const Checkbox = ({ label, value, onChange }) => {
+    return (
+      <label>
+        <input type="checkbox" checked={value} onChange={onChange} />
+        {label}
+      </label>
+    );
+  };
 
   const onRecCardContainerClick = useCallback(() => {
     navigate("/recept");
@@ -50,7 +69,8 @@ const Receptek = () => {
 
   function radioChanged(e){
     console.log(e.target.value)
-  }
+  };
+ 
   
   return (
     <div className="receptek8">
@@ -86,16 +106,29 @@ const Receptek = () => {
         </div>
         <div className="hatter-kereseshez-parent">
           <div className="hatter-kereseshez" />
-
-
-          <div className="frame-child14" />
-          <div className="frame-child15" />
-          <div className="frame-child16" />
-          <div className="frame-child17" />
-          <b className="glutnmentes">gluténmentes</b>
-          <b className="laktzmentes">laktózmentes</b>
-          <b className="vegetrinus">vegetáriánus</b>
-          <b className="vegn">vegán</b>
+          <div className="checkboxok">
+            <span class="checkmark"></span>
+            <Checkbox
+              label="Gluténmentes"
+              value={checkedOne}
+              onChange={handleChangeOne}
+            />
+            <Checkbox
+              label="Laktózmentes"
+              value={checkedTwo}
+              onChange={handleChangeTwo}
+            />
+            <Checkbox
+              label="Vegetáriánus"
+              value={checkedTr}
+              onChange={handleChangeTr}
+            />
+            <Checkbox
+              label="Vegán"
+              value={checkedFo}
+              onChange={handleChangeFo}
+            />
+          </div>
           <div className="hozzavalo-beirasa">
             <div className="hozzval-neve">Hozzávaló_neve</div>
           </div>

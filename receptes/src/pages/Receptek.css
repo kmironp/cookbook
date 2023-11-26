@@ -133,69 +133,23 @@
   width: 1102px;
   height: 222px;
 }
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0px;
+  width: 0px;
+  background-color: #eee;
+}
 
 .checkboxok{
   position: absolute;
-  height: 10.36%;
-  width: 2.09%;
+  height: 75.36%;
+  width: 16.9%;
   top: 13.96%;
   right: 21.51%;
   bottom: 75.68%;
   left: 76.41%;
-  background-color: var(--color-rosybrown);
-}
-.frame-child14,
-.frame-child15,
-.frame-child16,
-.frame-child17 {
-  position: absolute;
-  height: 10.36%;
-  width: 2.09%;
-  top: 13.96%;
-  right: 21.51%;
-  bottom: 75.68%;
-  left: 76.41%;
-  background-color: var(--color-rosybrown);
-}
-.frame-child15,
-.frame-child16,
-.frame-child17 {
-  top: 35.59%;
-  bottom: 54.05%;
-}
-.frame-child16,
-.frame-child17 {
-  top: 58.11%;
-  bottom: 31.53%;
-}
-.frame-child17 {
-  top: 79.73%;
-  bottom: 9.91%;
-}
-.glutnmentes,
-.laktzmentes,
-.vegetrinus,
-.vegn {
-  position: absolute;
-  height: 20.95%;
-  width: 16.33%;
-  top: 8.56%;
-  left: 82.21%;
-  line-height: 200%;
-  display: flex;
-  align-items: center;
-}
-.laktzmentes,
-.vegetrinus,
-.vegn {
-  top: 30.18%;
-}
-.vegetrinus,
-.vegn {
-  top: 52.7%;
-}
-.vegn {
-  top: 74.32%;
 }
 .hozzval-neve {
   flex: 1;
@@ -294,6 +248,7 @@
   font-weight: 500;
 }
 .radiogombokdefaulttart {
+  display: block;
   position: absolute;
   top: 158px;
   left: 136px;
@@ -301,6 +256,12 @@
   height: 36px;
   font-size: var(--font-size-5xl);
 }
+.container {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+}
+
 .hatter-kereseshez-parent {
   position: absolute;
   top: 80px;

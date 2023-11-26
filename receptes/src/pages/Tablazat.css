@@ -283,25 +283,7 @@
   line-height: 200%;
   font-weight: 600;
 }
-.kategria-nv-wrapper {
-  position: absolute;
-  top: 0;
-  left: 6px;
-  border-radius: var(--br-xs);
-  background-color: var(--color-darkolivegreen);
-  width: 196px;
-  height: 53px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 0 var(--padding-3xs);
-  box-sizing: border-box;
-  text-align: left;
-  font-size: var(--sp-03-size);
-  color: var(--color-white);
-}
+
 .fejlc {
   position: absolute;
   top: 103px;
