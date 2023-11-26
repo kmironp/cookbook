@@ -1,4 +1,4 @@
-import { useCallback,useState } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Feltoltes.css";
 
@@ -18,17 +18,17 @@ const Feltoltes = () => {
   }, [navigate]);
 
   const [hozzavalo, setHozza] = useState({
-    nev:'',
-    menny:'',
-    mertegys:'',
+    nev: '',
+    menny: '',
+    mertegys: '',
   });
 
-  const handleInputChange = (e) =>{
-    const {name, value} = e.target;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
 
     setHozza({
       ...hozzavalo,
-      [name] : value
+      [name]: value
 
     })
   }
@@ -65,25 +65,58 @@ const Feltoltes = () => {
           </div>
           <div className="frame-child1" />
           <div className="frame-child2" />
-          <div className="receptnev">receptnev</div>
-          <div className="adagszam">adagszam</div>
+          <div className="receptnev">
+            <input
+              className="receptnev-adagszam"
+              type="text"
+              name="receptnev"
+              placeholder="Recept neve"
+              // recept nevet menteni
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="adagszam">
+            <input
+              className="receptnev-adagszam"
+              type="number"
+              name="adagszam"
+              placeholder="Adagok száma"
+              // adag szamot menteni
+              onChange={handleInputChange}
+            />
+          </div>
           <div className="hozzavalosor">
             <div className="rectangle-group">
               <div className="group-child" />
-              <input className="username-or-input3" 
-                  type="text" 
-                  name="nev" 
-                  value={hozzavalo['nev']} 
-                  onChange={handleInputChange}
-                  />
+              <input
+                className="group-child"
+                type="text"
+                name="Hozzavalo"
+                placeholder="Hozzávaló neve"
+                value={hozzavalo["hozzavalonev"]}
+                onChange={handleInputChange}
+              />
             </div>
             <div className="rectangle-container">
-              <div className="group-item" />
-              <div className="mnnysg">mnnysg</div>
+            <input
+                className="mnnysg"
+                type="number"
+                name="menny"
+                placeholder="Mennyiség"
+                value={hozzavalo["mennyiseg"]} // legyen number típus
+                onChange={handleInputChange}
+              />              
             </div>
             <div className="group-div">
               <div className="group-inner" />
-              <div className="mrtg">mrtg</div>
+              <input
+                className="mrtg"
+                type="text"
+                name="mrtg"
+                placeholder="Mértékegység"
+                value={hozzavalo["mértékegység"]}
+                onChange={handleInputChange}
+              />   
             </div>
           </div>
           <div className="vector-parent">
@@ -119,7 +152,7 @@ const Feltoltes = () => {
           />
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

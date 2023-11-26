@@ -2,13 +2,15 @@ package com.example.therealcookbook.Users;
 
 import com.example.therealcookbook.Recipes.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.therealcookbook.Users.UserService;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping(path = "api/v1/Users")
 public class UserController {
 
@@ -25,10 +27,10 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping("save")
-    public  void  registerNewUser(@RequestBody User user, @RequestBody String pwagain)
+    @PostMapping("userregister")
+    public void registerNewUser(@RequestBody User user)
     {
-        userService.saveUser(user,pwagain);
+        userService.saveUser(user);
     }
 
     @GetMapping("useremail")
@@ -37,49 +39,132 @@ public class UserController {
         return userService.GetUserByEmail(email);
     }
 
-    @DeleteMapping(path = "{id}")
-    public void DeleteUser(@PathVariable("id") Integer id)
-    {
-        userService.deleteUser(id);
+    @DeleteMapping(path = "deluser")
+    public void deleteUser(@RequestParam("username") String username) {
+        userService.deleteUser(username);
     }
 
-    @PutMapping(path = "{id}")
-    public void updateUser(@PathVariable("id") Integer id,
-                           @RequestParam(required = false) String name,
-                           @RequestParam(required = false) String email)
-    {
-        userService.updateEmail(id,name,email);
+    @PutMapping(path = "updateemail")
+    public void updateEmail(
+            @RequestParam("username") String username,
+            @RequestParam("newEmail") String newEmail) {
+        userService.updateEmail(username, newEmail);
     }
+
     @PutMapping(path = "{id}/updatepw")
-    public void updatePw(@PathVariable("id") Integer id,
-                           @RequestParam(required = true) String email,
-                           @RequestParam(required = true) String oldPw,
-                         @RequestParam(required = true) String pw,
-                         @RequestParam(required = true) String tempPw)
-    {
-        userService.updatePw(id,email,oldPw,pw,tempPw);
-    }
-    @GetMapping("{id}/username")
-    public String getUsername(@PathVariable("id") Integer id)
-    {
-        return userService.getUsername(id);
-    }
-    @GetMapping("{id}/email")
-    public String getEmail(@PathVariable("id") Integer id)
-    {
-        return userService.getEmail(id);
-    }
-    @GetMapping("{id}/OwnRecipes")
-    public List<Recipe> getOwnRec(@PathVariable("id") Integer id)
-    {
-        return userService.getOwnRec(id);
-    }
-    @GetMapping("{id}/FavRecipes")
-    public List<Recipe> getFavRec(@PathVariable("id") Integer id)
-    {
-        return userService.getFavRec(id);
+    public void updatePassword(
+            @RequestParam("username") String username,
+            @RequestParam("oldPassword") String oldPassword,
+            @RequestParam("newPassword") String newPassword) {
+        userService.updatePassword(username, oldPassword, newPassword);
     }
 
+    @GetMapping("{username}/getusername")
+    public String getUsername(@PathVariable("username") String username) {
+        return userService.getUsername(username);
+    }
 
+    @GetMapping("{username}/getemail")
+    public String getEmail(@PathVariable("username") String username) {
+        return userService.getEmail(username);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
+        User user = userService.login(email, password);
+
+        if (user != null) {
+            return ResponseEntity.ok("Login successful");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed");
+        }
+    }
+
+    @GetMapping("{username}/getownrecipes")
+    public List<Recipe> getAllOwnRecipes(@PathVariable("username") String username) {
+        return userService.getAllOwnRecipes(username);
+    }
+
+    @PutMapping("{username}/updateownrecipes/{recipeId}")
+    public void updateOwnRecipe(
+            @PathVariable("username") String username,
+            @PathVariable("recipeId") Integer recipeId,
+            @RequestBody Recipe updatedRecipe) {
+        userService.updateOwnRecipe(username, recipeId, updatedRecipe);
+    }
+
+    @DeleteMapping("{username}/deleteownrecipe/{recipeId}")
+    public void deleteOwnRecipe(
+            @PathVariable("username") String username,
+            @PathVariable("recipeId") Integer recipeId) {
+        userService.deleteOwnRecipe(username, recipeId);
+    }
+
+    @PostMapping("{username}/uploadownrecipes")
+    public void uploadOwnRecipe(
+            @PathVariable("username") String username,
+            @RequestBody Recipe newRecipe) {
+        userService.uploadOwnRecipe(username, newRecipe);
+    }
+
+    @GetMapping("{username}/getfavouriterecipes")
+    public List<Recipe> getAllFavouriteRecipes(@PathVariable("username") String username) {
+        return userService.getAllFavouriteRecipes(username);
+    }
+
+    @DeleteMapping("{username}/removefromfavorites/{recipeId}")
+    public void removeOneFromMyFavoriteRecipes(
+            @PathVariable("username") String username,
+            @PathVariable("recipeId") Integer recipeId) {
+        userService.removeOneFromMyFavoriteRecipes(username, recipeId);
+    }
+
+    @PostMapping("{username}/addtofavourites")
+    public void addToMyFavouriteRecipes(
+            @PathVariable("username") String username,
+            @RequestBody Recipe recipe) {
+        userService.addToMyFavouriteRecipes(username, recipe);
+    }
+
+    @GetMapping("/getallrecipes")
+    public List<Recipe> getAllRecipesAllUserAvailable() {
+        return userService.getAllRecipesAllUserAvailable();
+    }
+
+    @GetMapping("/recipesbyname")
+    public List<Recipe> getRecipesByName(@RequestParam("name") String name) {
+        return userService.getRecipesByName(name);
+    }
+
+    @GetMapping("/recipesbyincludeingredient")
+    public List<Recipe> getRecipeByIncludeIngredient(@RequestParam("ingredient") String ingredientName) {
+        return userService.getRecipeByIncludeIngredient(ingredientName);
+    }
+
+    @GetMapping("/recipesbyspecialdemand")
+    public List<Recipe> getRecipeIfIncludeSpecialDemand() {
+        return userService.getRecipeIfIncludeSpecialDemand();
+    }
+
+    @GetMapping("/recipeswithoutspecialdemand")
+    public List<Recipe> getRecipeIfNotIncludeSpecialDemand() {
+        return userService.getRecipeIfNotIncludeSpecialDemand();
+    }
+
+    @PutMapping("/updateRecipeServings/{recipeId}")
+    public ResponseEntity<String> updateRecipeServings(
+            @PathVariable Integer recipeId,
+            @RequestParam Integer newServings) {
+        userService.updateRecipeServings(recipeId, newServings);
+        return ResponseEntity.ok("Recipe servings updated successfully");
+    }
+
+    @PutMapping("/updateRecipeIngredientAmounts/{recipeId}")
+    public ResponseEntity<String> updateRecipeIngredientAmounts(
+            @PathVariable Integer recipeId,
+            @RequestBody List<Integer> newIngredientAmounts) {
+        userService.updateRecipeIngredientAmounts(recipeId, newIngredientAmounts);
+        return ResponseEntity.ok("Recipe ingredient amounts updated successfully");
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.therealcookbook.Users;
 
 import com.example.therealcookbook.Recipes.Recipe;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,19 +18,24 @@ import java.util.List;
 @AllArgsConstructor
 public class User {
     @Id
-    @GeneratedValue
-    private Integer id;
+    @Column(unique = true)
     private String username;
     private String password;
     @Column(unique = true)
     private String email;
-    private String region;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Nullable
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Recipe> ownRecipes;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Nullable
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Recipe> favouriteRecipes;
 
+    public void removeFromFavoriteRecipes(Recipe recipe) {
+        if (favouriteRecipes != null) {
+            favouriteRecipes.remove(recipe);
+        }
+    }
 
 }

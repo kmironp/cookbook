@@ -1,7 +1,9 @@
 package com.example.therealcookbook.CaloryTable;
 
-import com.example.therealcookbook.Recipes.Recipe;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,9 +26,5 @@ public class CaloryTable {
     private Double fat;
     private Double carbohydrate;
     private Double gi;
-    private boolean vegan;
-    private boolean vegetarian;
-    private boolean lactose;
-    private boolean glucose;
 }
 

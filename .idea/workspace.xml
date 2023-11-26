@@ -4,62 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af72292b-7056-4d1b-a276-6b6e18aa1579" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/Ingredient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/IngredientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/Recipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/main/java/com/example/h2database/H2databaseApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/main/resources/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/main/resources/schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2database/src/test/java/com/example/h2database/H2databaseApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/TherealcookbookApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/TherealcookbookApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/UserConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/User/Users.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/test/java/com/example/therealcookbook/TherealcookbookApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/test/java/com/example/therealcookbook/TherealcookbookApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/org/example/Main.java" beforeDir="false" />
+    <list default="true" id="6bc730f5-3822-4102-9185-1769e87a03e5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/therealcookbook.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/therealcookbook.mv.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="HTML File" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -70,47 +30,123 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2XnrxljdEfZfZnD9h22HpEXoTXi" />
+  <component name="ProjectId" id="2YbyHyFuVeapf3R1WvwaBUbi4Ln" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lAlIkA&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lali/Desktop/k2/cookbook-mIrOnKa&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;c75f0c3a52f40146941e2ddd08e11ce7&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "mIrOnKa",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_directory_selection": "C:/Users/Biboy/Documents/GitHub/cookbook/therealcookbook/src/test/java",
+    "last_opened_file_path": "C:/Users/Biboy/Documents/GitHub/cookbook",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "c75f0c3a52f40146941e2ddd08e11ce7",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.therealcookbook.Users" />
+    </key>
   </component>
   <component name="RunManager" selected="Spring Boot.TherealcookbookApplication">
-    <configuration name="CbpApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="cbp" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.cbp.CbpApplication" />
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="therealcookbook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.therealcookbook.Users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.therealcookbook.Users" />
+      <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.Users.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testDeleteOwnRecipe_UserExists_RecipeExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="therealcookbook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.therealcookbook.Users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.therealcookbook.Users" />
+      <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.Users.UserControllerTest" />
+      <option name="METHOD_NAME" value="testDeleteOwnRecipe_UserExists_RecipeExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testRemoveFromMyFavouriteRecipes_UserHasNoFavoriteRecipes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="therealcookbook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.therealcookbook.Users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.therealcookbook.Users" />
+      <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.Users.UserControllerTest" />
+      <option name="METHOD_NAME" value="testRemoveFromMyFavouriteRecipes_UserHasNoFavoriteRecipes" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testRemoveOneFromFavouriteRecipes_UserExists_RecipeExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="therealcookbook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.therealcookbook.Users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.therealcookbook.Users" />
+      <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.Users.UserControllerTest" />
+      <option name="METHOD_NAME" value="testRemoveOneFromFavouriteRecipes_UserExists_RecipeExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testRemoveOneFromMyFavoriteRecipes_UserExistsAndRecipeExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="therealcookbook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.therealcookbook.Users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.therealcookbook.Users" />
+      <option name="MAIN_CLASS_NAME" value="com.example.therealcookbook.Users.UserControllerTest" />
+      <option name="METHOD_NAME" value="testRemoveOneFromMyFavoriteRecipes_UserExistsAndRecipeExists" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,53 +158,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.UserControllerTest.testRemoveOneFromMyFavoriteRecipes_UserExistsAndRecipeExists" />
+        <item itemvalue="JUnit.UserControllerTest.testDeleteOwnRecipe_UserExists_RecipeExists" />
+        <item itemvalue="JUnit.UserControllerTest.testRemoveOneFromFavouriteRecipes_UserExists_RecipeExists" />
+        <item itemvalue="JUnit.UserControllerTest.testRemoveFromMyFavouriteRecipes_UserHasNoFavoriteRecipes" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="af72292b-7056-4d1b-a276-6b6e18aa1579" name="Changes" comment="" />
-      <created>1699275934135</created>
+      <changelist id="6bc730f5-3822-4102-9185-1769e87a03e5" name="Changes" comment="" />
+      <created>1700808489943</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699275934135</updated>
-      <workItem from="1699275935438" duration="9145000" />
-      <workItem from="1699285108769" duration="234000" />
-      <workItem from="1699285363989" duration="38000" />
-      <workItem from="1699285460449" duration="7000" />
-      <workItem from="1699523390472" duration="849000" />
-      <workItem from="1699524256426" duration="2090000" />
-      <workItem from="1699528400700" duration="116000" />
-      <workItem from="1699528703799" duration="1927000" />
-      <workItem from="1699610491393" duration="4180000" />
-      <workItem from="1699614796809" duration="1139000" />
-      <workItem from="1699632911495" duration="721000" />
-      <workItem from="1699805952085" duration="12000" />
-      <workItem from="1699806075042" duration="1661000" />
-      <workItem from="1699818489123" duration="219000" />
-      <workItem from="1699974995129" duration="874000" />
-      <workItem from="1700250493941" duration="548000" />
-      <workItem from="1700573472443" duration="1257000" />
-      <workItem from="1700575066545" duration="648000" />
-      <workItem from="1700576543368" duration="3317000" />
-      <workItem from="1700668794046" duration="5013000" />
-      <workItem from="1700753346036" duration="2862000" />
-      <workItem from="1700766384192" duration="13000" />
-      <workItem from="1700817229942" duration="11366000" />
+      <updated>1700808489943</updated>
+      <workItem from="1700808491194" duration="415000" />
+      <workItem from="1700808957226" duration="5429000" />
+      <workItem from="1700814410216" duration="1628000" />
+      <workItem from="1700816060999" duration="13607000" />
+      <workItem from="1700845378967" duration="5547000" />
+      <workItem from="1700903459582" duration="24279000" />
+      <workItem from="1700985030817" duration="4010000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/cookbook$UserControllerTest_testGetAllUsers.ic" NAME="UserControllerTest.testGetAllUsers Coverage Results" MODIFIED="1700821403951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.therealcookbook.Users.*</FILTER>
+    </SUITE>
   </component>
 </project>

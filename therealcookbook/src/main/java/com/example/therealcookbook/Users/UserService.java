@@ -1,23 +1,25 @@
 package com.example.therealcookbook.Users;
 
-
 import com.example.therealcookbook.Recipes.Recipe;
+import com.example.therealcookbook.Recipes.RecipeRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
+    private final RecipeRepository recipeRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, RecipeRepository recipeRepository) {
         this.userRepository = userRepository;
+        this.recipeRepository = recipeRepository;
     }
 
     public List<User> getAllUsers()
@@ -25,23 +27,17 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(Integer id)
-    {
-        return userRepository.findById(id);
-    }
+    public void deleteUser(String username) {
+        User user = userRepository.findByUsername(username);
 
-
-    public void deleteUser(Integer id)
-    {
-        boolean ex = userRepository.existsById(id);
-        if(!ex)
-        {
-            throw new IllegalStateException("No such user");
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
         }
-        userRepository.deleteById(id);
+
+        userRepository.deleteByUsername(username);
     }
 
-    public  void saveUser(User user, String pwagain)
+    public void saveUser(User user)
     {
         Optional<User> u = userRepository.findUserByEmail(user.getEmail());
         if(u.isPresent())
@@ -49,17 +45,7 @@ public class UserService {
             throw new IllegalStateException("email already exists");
         }
         if(user.getEmail().contains("@") && user.getEmail().contains(".")) {
-
-            if(user.getPassword().equals(pwagain))
-            {
-                userRepository.save(user);
-            }
-            else
-            {
-                throw new IllegalStateException("The 2 passwords don't match.");
-
-            }
-
+            userRepository.save(user);
         }
         else
         {
@@ -69,122 +55,257 @@ public class UserService {
 
     public Optional<User> GetUserByEmail(String email)
     {
-
         return userRepository.findUserByEmail(email);
     }
 
+    @Transactional
+    public void updateEmail(String username, String newEmail) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        User userWithNewEmail = userRepository.findByEmail(newEmail);
+
+        if (userWithNewEmail != null && !userWithNewEmail.getUsername().equals(username)) {
+            throw new IllegalArgumentException("Email " + newEmail + " is already in use");
+        }
+
+        user.setEmail(newEmail);
+        userRepository.save(user);
+    }
+
+    public void updatePassword(String username, String oldPassword, String newPassword) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        // Check if the old password matches the stored password
+        if (!user.getPassword().equals(oldPassword)) {
+            throw new IllegalArgumentException("Old password is incorrect");
+        }
+
+        // Update the password
+        user.setPassword(newPassword);
+        userRepository.save(user);
+    }
+
+    public String getUsername(String username) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        return user.getUsername();
+    }
+
+    public String getEmail(String username) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        return user.getEmail();
+    }
+
+    public User login(String email, String password) {
+        // Find the user by email
+        User user = userRepository.findByEmail(email);
+
+        // Check if the user exists and the password matches
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
+        }
+
+        return null; // Return null if login fails
+    }
+
+    public List<Recipe> getAllOwnRecipes(String username) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        return user.getOwnRecipes();
+    }
+
+    public void updateOwnRecipe(String username, Integer recipeId, Recipe updatedRecipe) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        List<Recipe> ownRecipes = user.getOwnRecipes();
+
+        if (ownRecipes == null || ownRecipes.isEmpty()) {
+            throw new IllegalArgumentException("User has no own recipes");
+        }
+
+        Optional<Recipe> recipeToUpdate = ownRecipes.stream()
+                .filter(recipe -> recipe.getId().equals(recipeId))
+                .findFirst();
+
+        if (recipeToUpdate.isPresent()) {
+            Recipe existingRecipe = recipeToUpdate.get();
+
+            // Update the fields of the existing recipe with the new values
+            existingRecipe.setName(updatedRecipe.getName());
+            existingRecipe.setDescription(updatedRecipe.getDescription());
+            existingRecipe.setServings(updatedRecipe.getServings());
+            existingRecipe.setVegan(updatedRecipe.isVegan());
+            existingRecipe.setVegetarian(updatedRecipe.isVegetarian());
+            existingRecipe.setLactose(updatedRecipe.isLactose());
+            existingRecipe.setGluten(updatedRecipe.isGluten());
+            existingRecipe.setIngredientNames(updatedRecipe.getIngredientNames());
+            existingRecipe.setIngredientAmounts(updatedRecipe.getIngredientAmounts());
+            existingRecipe.setIngredientMeasures(updatedRecipe.getIngredientMeasures());
+
+            userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("Recipe with ID " + recipeId + " not found in user's own recipes");
+        }
+    }
+
+    public void deleteOwnRecipe(String username, Integer recipeId) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        List<Recipe> ownRecipes = user.getOwnRecipes();
+
+        if (ownRecipes == null) {
+            throw new IllegalArgumentException("User does not have any own recipes");
+        }
+
+        // Find the recipe with the specified ID
+        Optional<Recipe> recipeToDelete = ownRecipes.stream()
+                .filter(recipe -> recipe.getId().equals(recipeId))
+                .findFirst();
+
+        if (recipeToDelete.isPresent()) {
+            ownRecipes.remove(recipeToDelete.get());
+        } else {
+            throw new IllegalArgumentException("Recipe with ID " + recipeId + " does not exist for the user");
+        }
+
+        userRepository.save(user);
+    }
+
+    public void uploadOwnRecipe(String username, Recipe newRecipe) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        List<Recipe> ownRecipes = user.getOwnRecipes();
+
+        if (ownRecipes == null) {
+            ownRecipes = new ArrayList<>();
+            user.setOwnRecipes(ownRecipes);
+        }
+
+        // Assign the user to the new recipe
+        newRecipe.setUser(user);
+
+        ownRecipes.add(newRecipe);
+
+        userRepository.save(user);
+    }
+
+    public List<Recipe> getAllFavouriteRecipes(String username) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        return user.getFavouriteRecipes();
+    }
+
+    public void removeOneFromMyFavoriteRecipes(String username, Integer recipeId) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        List<Recipe> favoriteRecipes = user.getFavouriteRecipes();
+
+        if (favoriteRecipes != null) {
+            Recipe recipeToRemove = favoriteRecipes.stream()
+                    .filter(recipe -> recipe.getId().equals(recipeId))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException("Recipe with id " + recipeId + " not found in user's favorite recipes"));
+
+            user.removeFromFavoriteRecipes(recipeToRemove);
+            userRepository.save(user);
+        }
+    }
+
+    public void addToMyFavouriteRecipes(String username, Recipe recipe) {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User with username " + username + " does not exist");
+        }
+
+        List<Recipe> favouriteRecipes = user.getFavouriteRecipes();
+        if (favouriteRecipes == null) {
+            favouriteRecipes = new ArrayList<>();
+            user.setFavouriteRecipes(favouriteRecipes);
+        }
+
+        favouriteRecipes.add(recipe);
+        userRepository.save(user);
+    }
+
+    public List<Recipe> getAllRecipesAllUserAvailable() {
+        return recipeRepository.findAll();
+    }
+
+    public List<Recipe> getRecipesByName(String name) {
+        return recipeRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    public List<Recipe> getRecipeByIncludeIngredient(String ingredientName) {
+        return recipeRepository.findByIngredientNamesContainingIgnoreCase(ingredientName);
+    }
+
+    public List<Recipe> getRecipeIfIncludeSpecialDemand() {
+        return recipeRepository.findByVeganIsTrueAndVegetarianIsTrueAndLactoseIsTrueAndGlutenIsTrue();
+    }
+
+    public List<Recipe> getRecipeIfNotIncludeSpecialDemand() {
+        return recipeRepository.findByVeganIsFalseAndVegetarianIsFalseAndLactoseIsFalseAndGlutenIsFalse();
+    }
 
     @Transactional
-    public void updateEmail(Integer id, String username, String email) {
-        User u = userRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("No such user!"));
-
-        if(username != null && !username.isEmpty() && !Objects.equals(u.getUsername(),username))
-        {
-            u.setUsername(username);
-        }
-        if(email != null && !email.isEmpty() && !Objects.equals(u.getEmail(),email))
-        {
-            Optional<User> optionalUser = userRepository.findUserByEmail(email);
-            if(optionalUser.isPresent())
-            {
-                throw new IllegalStateException("Email already in use");
-            }
-            u.setEmail(email);
-        }
+    public void updateRecipeServings(Integer recipeId, Integer newServings) {
+        Recipe recipe = getRecipeById(recipeId);
+        recipe.updateServings(newServings);
+        recipeRepository.save(recipe);
     }
 
-    public void updatePw(Integer id,String email,String oldPw, String pw, String tempPw)
-    {
-        Optional<User> u = userRepository.findUserByEmail(email);
-
-        if(u.isPresent())
-        {
-            User us = u.get();
-            if(Objects.equals(us.getPassword(), pw))
-            {
-                throw new IllegalStateException(
-                        "New password can't be the same as the old password");
-            }
-            else if(pw.length() < 8)
-            {
-                throw new IllegalStateException(
-                        "Password must be have least 8 characters!");
-
-            }
-            else if(Objects.equals(pw,tempPw) && Objects.equals(oldPw,us.getPassword()))
-            {
-                us.setPassword(pw);
-            }
-            else
-            {
-                throw new IllegalStateException(
-                        "The 2 passwords must match!");
-
-            }
-        }
+    @Transactional
+    public void updateRecipeIngredientAmounts(Integer recipeId, List<Integer> newIngredientAmounts) {
+        Recipe recipe = getRecipeById(recipeId);
+        recipe.updateIngredientAmounts(newIngredientAmounts);
+        recipeRepository.save(recipe);
     }
 
-    public String getUsername(Integer id)
-    {
-        Optional<User> u = userRepository.findById(id);
-        if(u.isPresent())
-        {
-            User us = u.get();
-            return us.getUsername();
-        }
-        throw new IllegalStateException("User doesn't exist!");
-    }
-    public String getEmail(Integer id)
-    {
-        Optional<User> u = userRepository.findById(id);
-        if(u.isPresent())
-        {
-            User us = u.get();
-            return us.getEmail();
-        }
-        throw new IllegalStateException("User doesn't exist!");
-    }
-    public List<Recipe> getOwnRec(Integer id)
-    {
-        Optional<User> u = userRepository.findById(id);
-        if(u.isPresent())
-        {
-            User us = u.get();
-            return us.getOwnRecipes();
-        }
-        throw new IllegalStateException("User doesn't exist!");
+    private Recipe getRecipeById(Integer recipeId) {
+        return recipeRepository.findById(recipeId)
+                .orElseThrow(() -> new IllegalArgumentException("Recipe with ID " + recipeId + " not found"));
     }
 
-    public List<Recipe> getFavRec(Integer id)
-    {
-        Optional<User> u = userRepository.findById(id);
-        if(u.isPresent())
-        {
-            User us = u.get();
-            return us.getFavouriteRecipes();
-        }
-        throw new IllegalStateException("User doesn't exist!");
-    }
-
-    public void login (String email, String pw)
-    {
-        Optional<User> u = userRepository.findUserByEmail(email);
-        if(u.isPresent())
-        {
-            User us = u.get();
-            if(us.getPassword().equals(pw))
-            {
-                //DOSTUFF pl: return "nyitólap.html"
-            }
-            else
-            {
-                throw new IllegalStateException("Wrong Credentials!");
-            }
-        }
-        else
-        {
-            throw new IllegalStateException("Wrong Credentials!");
-        }
-    }
 }

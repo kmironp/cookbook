@@ -10,13 +10,9 @@
         <module name="therealcookbook" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="cbp" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="cbp" options="-parameters" />
       <module name="therealcookbook" options="-parameters" />
     </option>
   </component>

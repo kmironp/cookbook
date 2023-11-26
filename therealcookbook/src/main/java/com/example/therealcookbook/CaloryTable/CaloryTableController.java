@@ -9,20 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/CaloryTable")
 @CrossOrigin("http://localhost:3000")
+@RequestMapping(path = "api/v1/CaloryTable")
 public class CaloryTableController {
     private final CaloryTableService caloryTableService;
 
     @Autowired
     public CaloryTableController(CaloryTableService caloryTableService) {
         this.caloryTableService = caloryTableService;
-    }
-
-    @GetMapping("/listallwithoutcat")
-    public List<CaloryTable> AllToTheTable()
-    {
-        return caloryTableService.allstuff();
     }
 
     @GetMapping("/listall")

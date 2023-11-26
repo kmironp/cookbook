@@ -15,13 +15,6 @@ public class CaloryTableService {
         this.caloryTableRepository = caloryTableRepository;
     }
 
-
-    public List<CaloryTable> allstuff()
-    {
-
-        return caloryTableRepository.findAll();
-    }
-
     public List<CaloryTable> ListStuff(String cat)
     {
         List<CaloryTable> totable = new ArrayList<CaloryTable>();

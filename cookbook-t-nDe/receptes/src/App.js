@@ -101,12 +101,12 @@ function App() {
   return (
     <Routes>
       <Route path="/Changepw" element={<Changepw />} />
-      <Route path="/feltoltes" element={<Feltoltes />} />
+      <Route path="/" element={<Feltoltes />} />
       <Route path="/feltoltottreceptek" element={<Feltoltottreceptek />} />
       <Route path="/kedvencreceptek" element={<Kedvencreceptek />} />
       <Route path="/recept" element={<Recept />} />
       <Route path="/tablazat" element={<Tablazat />} />
-      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/userpage" element={<Userpage />} />
       <Route path="/kaloriatablazatok" element={<Kaloriatablazatok />} />
       <Route path="/receptek" element={<Receptek />} />
