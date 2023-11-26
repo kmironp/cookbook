@@ -1,9 +1,20 @@
-import { useCallback } from "react";
+import React, {useCallback, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "./Receptek.css";
 
 const Receptek = () => {
   const navigate = useNavigate();
+  const [radio, setRadio] = useState()
+  const [checkedOne, setCheckedOne] = useState(false);
+  const [checkedTwo, setCheckedTwo] = useState(false);
+  
+   const handleChangeOne = () => {
+      setCheckedOne(!checkedOne);
+    };
+  
+  const handleChangeTwo = () => {
+      setCheckedTwo(!checkedTwo);
+    };
 
   const onRecCardContainerClick = useCallback(() => {
     navigate("/recept");
@@ -37,6 +48,10 @@ const Receptek = () => {
     navigate("/userpage");
   }, [navigate]);
 
+  function radioChanged(e){
+    console.log(e.target.value)
+  }
+  
   return (
     <div className="receptek8">
       <div className="deskbg9">
@@ -71,6 +86,8 @@ const Receptek = () => {
         </div>
         <div className="hatter-kereseshez-parent">
           <div className="hatter-kereseshez" />
+
+
           <div className="frame-child14" />
           <div className="frame-child15" />
           <div className="frame-child16" />
@@ -96,22 +113,11 @@ const Receptek = () => {
             RECEPTEK KERESÉSE HOZZÁVALÓ ALAPJÁN:
           </div>
           <img className="elvalaszto-icon" alt="" src="/elvalaszto.svg" />
-          <div className="tart-alap">
-            <div className="alap">
-              <div className="radiogombokdefaulttart1">
-                <div className="circle3">
-                  <div className="ellipse-div" />
-                </div>
-                <div className="tartalmazza1">Tartalmazza</div>
-              </div>
-              <div className="radiogombokdefaulttart1">
-                <div className="circle3">
-                  <div className="ellipse-div" />
-                </div>
-                <div className="tartalmazza1">Kihagyja</div>
-              </div>
-            </div>
+          <div className="radiogombokdefaulttart" onChange={(e) => radioChanged(e)}>
+            <input type="radio" value="Tartalmazza" name="gender" /> Tartalmazza
+            <input type="radio" value="Kihagyja" name="gender" /> Kihagyja
           </div>
+
         </div>
         <div className="logo-parent5">
           <div className="logo9">

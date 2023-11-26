@@ -133,6 +133,17 @@
   width: 1102px;
   height: 222px;
 }
+
+.checkboxok{
+  position: absolute;
+  height: 10.36%;
+  width: 2.09%;
+  top: 13.96%;
+  right: 21.51%;
+  bottom: 75.68%;
+  left: 76.41%;
+  background-color: var(--color-rosybrown);
+}
 .frame-child14,
 .frame-child15,
 .frame-child16,
@@ -282,27 +293,10 @@
   position: relative;
   font-weight: 500;
 }
-.radiogombokdefaulttart1 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: var(--gap-5xs);
-}
-.alap {
+.radiogombokdefaulttart {
   position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 100px;
-}
-.tart-alap {
-  position: absolute;
-  top: 157px;
-  left: 41px;
+  top: 158px;
+  left: 136px;
   width: 442px;
   height: 36px;
   font-size: var(--font-size-5xl);
