@@ -7,37 +7,6 @@
     <list default="true" id="6bc730f5-3822-4102-9185-1769e87a03e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/therealcookbook.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/therealcookbook.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/CaloryTable/CaloryTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/CaloryTable/CaloryTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/CaloryTable/CaloryTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/CaloryTable/CaloryTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/Ingredient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/IngredientController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/IngredientRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Ingredients/IngredientService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Recipes/RecipeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/src/main/java/com/example/therealcookbook/Users/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTable$CaloryTableBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTable$CaloryTableBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/CaloryTable/CaloryTableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/Ingredient$IngredientBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/Ingredient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/IngredientController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/IngredientRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Ingredients/IngredientService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/Recipe$RecipeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/Recipe$RecipeBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/Recipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/Recipe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Recipes/RecipeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/therealcookbook/target/classes/com/example/therealcookbook/Users/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,30 +38,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;mIrOnKa&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/Biboy/Documents/GitHub/cookbook/therealcookbook/src/test/java&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Biboy/Documents/GitHub/cookbook&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;c75f0c3a52f40146941e2ddd08e11ce7&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "mIrOnKa",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_directory_selection": "C:/Users/Biboy/Documents/GitHub/cookbook/therealcookbook/src/test/java",
+    "last_opened_file_path": "C:/Users/Biboy/Documents/GitHub/cookbook",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "c75f0c3a52f40146941e2ddd08e11ce7",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -211,7 +181,8 @@
       <workItem from="1700814410216" duration="1628000" />
       <workItem from="1700816060999" duration="13607000" />
       <workItem from="1700845378967" duration="5547000" />
-      <workItem from="1700903459582" duration="23273000" />
+      <workItem from="1700903459582" duration="24279000" />
+      <workItem from="1700985030817" duration="4010000" />
     </task>
     <servers />
   </component>

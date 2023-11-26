@@ -1,0 +1,310 @@
+/* Add your global styles or variables here */
+
+.changepw {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 894px;
+  overflow: hidden;
+  text-align: right;
+  font-size: var(--font-size-8xl);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+
+.katie-smith-uqs1802d0cq-unspla-icon {
+  position: absolute;
+  height: calc(100% - 1px);
+  width: 100%;
+  top: 1px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.bgoverlay {
+  background-color: var(--color-gray);
+  backdrop-filter: blur(10px);
+}
+
+.bgoverlay,
+.deskbg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.frame-child,
+.mainwindow {
+  position: absolute;
+  border-radius: var(--br-3xs);
+  width: 1102px;
+  
+}
+
+.mainwindow {
+  top: calc(50% - 361.4px);
+  left: calc(50% - 550px);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-whitesmoke);
+  box-sizing: border-box;
+  height: 722px;
+}
+
+.frame-child {
+  top: calc(50% - 279.6px);
+  left: calc(50% - 551px);
+  background-color: var(--color-gainsboro);
+  height: 640px;
+}
+
+.felhasznlsfelulet-child {
+  position: absolute;
+  top: calc(50% - 87.5px);
+  left: calc(50% - 384.5px);
+  border-radius: var(--br-10xl);
+  background-color: var(--color-darkgreen-200);
+  width: 769px;
+  height: 175px;
+}
+
+.e-mail-cm,
+.felhasznlnv {
+  position: relative;
+  line-height: 160%;
+  font-weight: 600;
+  display: inline-block;
+  width: 227px;
+}
+
+.e-mail-cm {
+  width: 155px;
+}
+
+.felhasznlnv-parent {
+  position: absolute;
+  top: calc(50% - 53.5px);
+  left: calc(50% - 169.5px);
+  border-radius: var(--br-5xs);
+  background-color: var(--color-gainsboro);
+  width: 513px;
+  height: 107px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-12xl);
+  box-sizing: border-box;
+  gap: var(--gap-3xs);
+  mix-blend-mode: linear-burn;
+}
+
+.felhasznlsfelulet {
+  position: absolute;
+  top: calc(50% - 266.4px);
+  left: calc(50% - 383px);
+  width: 769px;
+  height: 175px;
+  text-align: left;
+  font-size: 28.34px;
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+
+.frame-item {
+  position: absolute;
+  top: 142px;
+  left: 232px;
+  width: 78px;
+  height: 78px;
+}
+
+.component-33-item,
+.rgi-jelsz1 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.component-33-item {
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-gainsboro);
+}
+
+.rgi-jelsz1 {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.component-331,
+.component-34,
+.component-35 {
+  position: absolute;
+  top: calc(50% - 25.5px); /* Adjust the top value to center vertically */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 309px;
+  height: 51px;
+}
+
+.component-34,
+.component-35 {
+  top: calc(50% + 147.1px); /* Adjust the top value to center vertically */
+}
+
+.component-34 {
+  top: calc(50% + 60.1px); /* Adjust the top value to center vertically */
+}
+
+/* Add styles for input fields */
+.form-control {
+  position: absolute;
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #40cc6f; /* Green border color */
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  box-shadow: none; /* No box shadow */
+}
+
+/* Center the input fields */
+.component-331 input,
+.component-34 input,
+.component-35 input {
+  left: 10px;
+  right: 10px;
+}
+
+.component-36 {
+  position: absolute;
+  top: calc(50% + 234px); /* Adjust the top value to position vertically */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.change-password-button {
+  padding: 10px;
+  background-color: #40cc6f; /* Green background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Optional: Add a smooth transition effect */
+}
+
+.change-password-button:hover {
+  background-color: #308854; /* Darker green color on hover */
+}
+
+.time {
+  font-weight: 500;
+  font-family: var(--sp-03);
+}
+
+.foodtime {
+  position: relative;
+  line-height: 160%;
+}
+
+.logo {
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs);
+  box-sizing: border-box;
+}
+
+.kaltab,
+.receptek {
+  position: relative;
+  line-height: 200%;
+  font-weight: 500;
+  height: 43px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.receptek {
+  display: flex;
+  align-items: flex-end;
+  width: 85px;
+}
+
+.kaltab {
+  width: 140px;
+}
+
+.feltoltes,
+.kaltab,
+.menu {
+  display: flex;
+  align-items: flex-end;
+}
+
+.feltoltes {
+  position: relative;
+  line-height: 200%;
+  font-weight: 500;
+  width: 76px;
+  height: 43px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.menu {
+  width: 466px;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: var(--sp-03-size);
+  color: var(--balck-basic);
+  font-family: var(--sp-03);
+}
+
+.instance-child {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: none;
+}
+
+.logo-parent {
+  position: absolute;
+  top: calc(50% - 348.5px);
+  left: calc(50% - 524px);
+  width: 880px;
+  height: 59.4px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 28.34px;
+  color: var(--primary-c);
+  font-family: var(--font-merienda);
+}
+
+.mainwindow-parent {
+  position: absolute;
+  top: calc(50% - 361px);
+  left: calc(50% - 551px);
+  width: 1102px;
+  height: 720.8px;
+}
