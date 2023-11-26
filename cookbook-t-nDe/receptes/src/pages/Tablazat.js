@@ -33,6 +33,8 @@ const Tablazat = (props) => {
     axios.get('http://localhost:8081/api/v1/CaloryTable/listallwithoutcat')
     .then(response => setTablazat(response.data))
   }
+
+  const szurtertekek = Tablazatertekek.filter(elem => elem.category === cat)
   
   useEffect(() => {
     getTablazatertekek();
@@ -56,7 +58,7 @@ const Tablazat = (props) => {
           <div className="frame-child6" />
           <table>
             <tbody>
-            {Tablazatertekek.map(ertek=>(
+            {szurtertekek.map(ertek=>(
               <tr className="row">
                   <td className="oszlop1">{ertek.name}</td>
                   <td className="oszlop2">{ertek.energy}</td>
